@@ -38,6 +38,10 @@ and open the template in the editor.
 
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.css" />
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        <!--<script src="<?= base_url()?>static/js/selectBuscador.js"></script>-->
     </head>
     <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
         <!-- color-line START -->
@@ -123,6 +127,19 @@ and open the template in the editor.
 
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <select class="js-example-basic-single" style="width: 100%" name="especialidad" id="especialidad">
+                                                <option>Seleccione</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                                <option>6</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 <div class="col-lg-12">
                                     <div class="hr-line-dashed">
 
@@ -171,6 +188,10 @@ and open the template in the editor.
 
         <!-- App scripts -->
         <script type="text/javascript">
+            // In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
             function base_url() {
                 return "<?= base_url() ?>";
             }
