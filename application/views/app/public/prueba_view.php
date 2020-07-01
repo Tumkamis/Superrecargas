@@ -74,7 +74,7 @@ and open the template in the editor.
                                 <!-- form row -->
                                 <div class="row">
                                     <div class="form-group col-lg-12 ">
-                                        <label><h4>Formulario ejemplo</h4></label>
+                                        <label><h4>Formulario ejemplo Git Version Control</h4></label>
                                         <br>
                                         <label><h4>*Campos obligatorios</h4></label>
                                     </div>
