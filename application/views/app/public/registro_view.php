@@ -20,27 +20,30 @@ and open the template in the editor.
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!--    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
         <link rel="shortcut icon" href="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" type="image/x-icon">
-        <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
-        <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="<?= base_url()?>static/js/validacionBeneficiario.js"></script>
+        <link rel="icon" href="<?= base_url() ?>static\images\logos\logo_aide_ico.ico" type="image/x-icon">
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/animate.css/animate.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/bootstrap/dist/css/bootstrap.css" />
 
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.min.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/select2-3.5.2/select2.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/select2-bootstrap/select2-bootstrap.css" />
+         <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css">
         <!-- App styles -->
-        <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
-        <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/helper.css" />
-        <link rel="stylesheet" href="<?= base_url() ?>static/styles/style.css">
-
         <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/helper.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/styles/loader.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/styles/style.css">
-
-        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
-        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.css" />
+        <!-- stylios y scrips para visualizar los documentos
+        -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
         <!-- color-line START -->
@@ -67,21 +70,13 @@ and open the template in the editor.
                     <div class="hpanel">
                         <div class="panel-body" style="background-color: #F2F2F2;">
                             <!-- form start -->
-                            <form role="form" id="form" action="<?= base_url() ?>usuario/registro_nuevo_usuario/insertar_beneficiario" method="post">
+                            <form role="form" id="form" action="<?= base_url() ?>registro/registro_post" method="post">
                                 <!-- form row -->
                                 <div class="row">
                                     <div class="form-group col-lg-12 ">
-                                        <label><h4>Agregar beneficiario</h4></label>
+                                        <label><h4>Registro</h4></label>
                                         <br>
                                         <label><h4>*Campos obligatorios</h4></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <label style="color: blue;">Nombre corto*:</label>
-                                            <input type="text" value="" id="nombre" class="form-control" name="nombre"  placeholder="*Campo requerido">
-                                            <span class="help-block"></span>
-
-                                        </div>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
@@ -93,55 +88,30 @@ and open the template in the editor.
                                     <div class="form-group">
                                         <div class="col-lg-6">
                                             <label style="color: blue;">Repetir número celular*:</label>
-                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="">
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
-                                            <label style="color: blue;">Operador*:</label>
-                                            <select name="idoperador" id="idoperador"  class="form-control m-b">
-                                                <option></option>
-                                                <?php
-                                                    if (!is_null($operadores)) :
-                                                        foreach ($operadores as $operador) :
-                                                ?>
-                                                <option value="<?= $operador->idoperador?>"><?=$operador->nombre?></option>
-                                                <?php
-                                                        endforeach;
-                                                    endif;
-                                                ?>
-                                            </select>
+                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-lg-6">
-                                            <label style="color: blue;">Paquete*:</label>
-                                            <select name="idpaquete" id="idpaquete"  class="form-control m-b">
-                                                <option></option>
-                                            </select>
+                                        <div class="col-lg-12">
+                                            <label style="color: blue;">Email*:</label>
+                                            <input type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
-                                        </div>
-                                        <div class="col-lg-12" id="idrespuesta">
-                                            
+
                                         </div>
                                     </div>
-                                </div>
                                 <div class="col-lg-12">
                                     <div class="hr-line-dashed">
 
                                     </div>
-                                    <input type="hidden" value="<?= $idprop?>" id="idpropietario" name="idpropietario">
                                 </div>
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>usuario/beneficiario" >Cancelar</a>
+                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>login" >Cancelar</a>
                                         <button
                                             class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="submit">Guardar</button>
+                                            type="submit">Enviar</button>
                                     </div>
                                 </div>
                             </form>
@@ -168,13 +138,38 @@ and open the template in the editor.
         <script src="<?= base_url() ?>static/vendor/jquery-ui/jquery-ui.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/slimScroll/jquery.slimscroll.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery-flot/jquery.flot.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery-flot/jquery.flot.resize.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery-flot/jquery.flot.pie.js"></script>
+        <script src="<?= base_url() ?>static/vendor/flot.curvedlines/curvedLines.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery.flot.spline/index.js"></script>
         <script src="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/iCheck/icheck.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/peity/jquery.peity.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/sparkline/index.js"></script>
+        
+        
+        <script src="<?= base_url() ?>static/vendor/select2-3.5.2/select2.min.js"></script>
 
-        <!--Modales alerts-->
+        <script src="<?= base_url() ?>static/vendor/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+
+        <!-- DataTables buttons scripts -->
+        <script src="<?= base_url() ?>static/vendor/pdfmake/build/pdfmake.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/pdfmake/build/vfs_fonts.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+
+        <!--Alertas scripts-->
         <script src="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.js"></script>
         <script src="<?= base_url() ?>static/vendor/toastr/build/toastr.min.js"></script>
+
+        <!-- App scripts -->
+        <script src="<?= base_url() ?>static/scripts/homer.js"></script>
+        <script src="<?= base_url() ?>static/scripts/app/libs/common.js"></script>
+        
 
         <!-- App scripts -->
         <script type="text/javascript">
@@ -182,8 +177,14 @@ and open the template in the editor.
                 return "<?= base_url() ?>";
             }
         </script>
+        <script>
+            $(function () {
+                $(".js-source-states").select2();
+                $(".js-source-states-2").select2();
+            });
+        </script>
         <script src="<?= base_url() ?>static/scripts/homer.js"></script>
-        
+        <script src="<?= base_url() ?>static/scripts/app/libs/common.js"></script>
 
         <!--validacion de contraseña -->
 

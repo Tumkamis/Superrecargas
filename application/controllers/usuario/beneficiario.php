@@ -26,7 +26,7 @@ class beneficiario extends CI_Controller {
 
     public function index() {
         $idpropietario = $this->session->userdata('idprop');
-        $nombrepropietario=$this->session->userdata('nombre');
+        $nombrepropietario=$this->session->userdata('telefono');
         $data = array();
 //        $data['municipios'] = $this->municipio_model->consultar_municipios();
 //
@@ -50,7 +50,7 @@ class beneficiario extends CI_Controller {
          * parameto que se manda a la  vista para mostrar el titulo
          */
         $data['titulo'] = "Simposio | Registro de cuenta nueva";
-        $data['nombre'] = $nombrepropietario;
+        $data['telefono'] = $nombrepropietario;
         $data['idprop'] = $idpropietario;
         $data['telefonos'] = $this->beneficiario_model->beneficiarios_prop($idpropietario);
         $data['beneficiarios'] = $this->beneficiario_model->beneficiarios_prop_detalle($idpropietario);

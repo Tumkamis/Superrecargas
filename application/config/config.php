@@ -23,7 +23,7 @@
 |
 */
 //$config['base_url'] = 'http://localhost/Superrecarga/';
-$config['base_url'] = 'http://superrecaga.com.mx/Superrecarga/';
+$config['base_url'] = 'http://superrecarga.online/Superrecarga/';
 //$config['base_url'] = 'http://3.101.13.211/SuperRecargaMeta/';
 //$config['base_url'] = 'http://cidtai.uteq.edu.mx/simposio_nano/';
 

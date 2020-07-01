@@ -9,9 +9,7 @@ and open the template in the editor.
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
-        <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="<?= base_url()?>static/js/eliminarBeneficiario.js"></script>
+
         <!-- Page title -->
         <title><?= $titulo ?></title>
 
@@ -22,6 +20,9 @@ and open the template in the editor.
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!--    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
         <link rel="shortcut icon" href="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" type="image/x-icon">
+        <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
+        <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
+        <script src="<?= base_url()?>static/js/validacionBeneficiario.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
@@ -64,65 +65,86 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="form-group col-lg-12">
-<!--                                    <label><h4>Hola José Rubén</h4></label>-->
-                                    <label><h4>Hola <?= $telefono?></h4></label>
-                                    <br>
-                                    <label>Tienes <?= $telefonos->telefonos?> números celulares agregados</label>
-                                    <br>
-                                    <div class="form-group " style="text-align:right;">
-                                        <a href="<?=  base_url()?>usuario/registro_beneficiario">
-                                            <button class="btn btn-primary" id="correoEnviado" name="correoEnviado" type="button">Agregar celular</button>
-                                        </a>
-                                    </div>
-                                    <div class="form-group " style="text-align:right;">
-                                        <!--<a href="http://superrecarga.website/SuperRecargaMeta/app/logout">-->
-                                        <a href="http://localhost/SuperRecargaMeta/app/logout">
-                                            <button class="btn btn-danger" id="" name="" type="button">Salir</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <label style="color: white">Teléfonos registrados</label>
-                        
                         <div class="panel-body" style="background-color: #F2F2F2;">
-                            <div class="row">
-                                <?php
-                                if(!is_null($beneficiarios)){
-                                    foreach ($beneficiarios as $beneficiario) :
-                                ?>
-                                <div class="col-sm-6 well well-lg" style="text-align: center">
-                                    <div class="form-group" style="text-align: right">
-                                        <button class="btn btn-danger eliminacion" data-id="<?= $beneficiario->idbeneficiario?>" type="button">
-                                            <i class="fa fa-minus-circle"></i> 
-                                            <span class="bold"> </span>
-                                        </button>
+                            <!-- form start -->
+                            <form role="form" id="form" action="<?= base_url() ?>usuario/registro_nuevo_usuario/insertar_beneficiario" method="post">
+                                <!-- form row -->
+                                <div class="row">
+                                    <div class="form-group col-lg-12 ">
+                                        <label><h4>Agregar beneficiario</h4></label>
+                                        <br>
+                                        <label><h4>*Campos obligatorios</h4></label>
                                     </div>
                                     <div class="form-group">
-                                        <img src="<?= base_url()?>/static/icono-user.png" width="100" height="75">
+                                        <div class="col-lg-12">
+                                            <label style="color: blue;">Nombre corto*:</label>
+                                            <input type="text" value="" id="nombre" class="form-control letras" name="nombre"  placeholder="*Campo requerido">
+                                            <span class="help-block"></span>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="col-lg-6"> 
+                                            <label style="color: blue;">Número celular (10 dígitos)*:</label>
+                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido">
+                                            <span class="help-block"></span>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label><?= $beneficiario->nombrecorto?></label>
-                                        <br>
-                                        <label>$<?= $beneficiario->preciopaquete?></label>
-                                        <label><h6>MXM</h6></label>
-                                        <br>
-                                        <label><?= $beneficiario->telefono?></label>
-                                        <br>
-                                        <label><?= $beneficiario->nompaquete?> <?=$beneficiario->nomoperador?></label>
+                                        <div class="col-lg-6">
+                                            <label style="color: blue;">Repetir número celular*:</label>
+                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <label style="color: blue;">Operador*:</label>
+                                            <select name="idoperador" id="idoperador"  class="form-control m-b">
+                                                <option></option>
+                                                <?php
+                                                    if (!is_null($operadores)) :
+                                                        foreach ($operadores as $operador) :
+                                                ?>
+                                                <option value="<?= $operador->idoperador?>"><?=$operador->nombre?></option>
+                                                <?php
+                                                        endforeach;
+                                                    endif;
+                                                ?>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-6">
+                                            <label style="color: blue;">Paquete*:</label>
+                                            <select name="idpaquete" id="idpaquete"  class="form-control m-b">
+                                                <option></option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                        <div class="col-lg-12" id="idrespuesta">
+                                            
+                                        </div>
                                     </div>
                                 </div>
-                                <?php
-                                    endforeach;
-                                }else {?>
-                                <label>Sin registros</label>
-                                <?php
-                                }
-                                ?>
-                            </div>
+                                <div class="col-lg-12">
+                                    <div class="hr-line-dashed">
+
+                                    </div>
+                                    <input type="hidden" value="<?= $idprop?>" id="idpropietario" name="idpropietario">
+                                </div>
+
+                                <div class="form-group " style="text-align:center;">
+                                    <div class="col-lg-12">
+                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>usuario/beneficiario" >Cancelar</a>
+                                        <button
+                                            class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
+                                            type="submit">Guardar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!-- hpanel END -->
@@ -149,7 +171,6 @@ and open the template in the editor.
         <script src="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/iCheck/icheck.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/sparkline/index.js"></script>
-        
 
         <!--Modales alerts-->
         <script src="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.js"></script>

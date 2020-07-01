@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
     $("#idoperador").change(function () {
         $("#idoperador option:selected").each(function () {
             paquete = $('#idoperador').val();
-            $.post("../usuario/registro_nuevo_usuario/buscar_paquete", {
+            $.post("../usuario/registro_beneficiario/buscar_paquete", {
                 idoperador: paquete
             }, function (data) {
                 $("#idpaquete").html(data);
@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
     $("#idpaquete").change(function () {
         $("#idpaquete option:selected").each(function () {
             paquete = $('#idpaquete').val();
-            $.post("../usuario/registro_nuevo_usuario/buscar_paquete_info", {
+            $.post("../usuario/registro_beneficiario/buscar_paquete_info", {
                 idpaquete: paquete
             }, function (data) {
                 $("#idrespuesta").html(data);

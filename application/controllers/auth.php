@@ -16,16 +16,20 @@ class Auth extends CI_Controller {
             $passwordusu = md5($this->input->post('password'));
 
             $this->load->model('login_model');
-            $datos_usuario = $this->login_model->consultar_usuario($correousu, $passwordusu);
+            $datos_propietario = $this->login_model->consultar_propietario($correousu, $passwordusu);
 
-            if (!is_null($datos_usuario)) {
+            if (!is_null($datos_propietario)) {
 
                 $arreglo_sesiones = array(
                     //controlador               base
-                    'idusu' => $datos_usuario->idusuario,
-                    'nombre' => $datos_usuario->nombre,
-                    'correousu' => $datos_usuario->correo,
-                    'tipo' => $datos_usuario->tipo,
+                    'idprop' => $datos_propietario->idpropietario,
+                    'nombre' => $datos_propietario->nombre,
+                    'ap' => $datos_propietario->apellido1,
+                    'am' => $datos_propietario->apellido2,
+                    'curprfc' => $datos_propietario->curp,
+                    'telefono' => $datos_propietario->telefono,
+                    'empresa' => $datos_propietario->empresa,
+                    'correousu' => $datos_propietario->correo,
                     'is_login' => TRUE
                 );
                 
@@ -39,7 +43,7 @@ class Auth extends CI_Controller {
                 $this->session->set_userdata("OTRA_SESION", "OTRO_VALOR");
                 $this->session->unset_userdata('OTRA_SESION');
 
-                redirect(base_url()."app/inicio",'refresh');
+                redirect(base_url()."usuario/beneficiario",'refresh');
 
             } else {
                 $this->session->set_flashdata('usuario_incorrecto', 'Los datos introducidos son incorrectos');
