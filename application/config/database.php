@@ -66,7 +66,7 @@ $active_record = TRUE;
 //$db['default']['stricton'] = FALSE;
 
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = 'superrecaga.com.mx';
 $db['default']['username'] = 'superrec_root';
 $db['default']['password'] = 'diatel2020';
 $db['default']['database'] = 'superrec_superrecargafundacion';
