@@ -20,28 +20,30 @@ and open the template in the editor.
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!--    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
         <link rel="shortcut icon" href="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" type="image/x-icon">
+        <link rel="icon" href="<?= base_url() ?>static\images\logos\logo_aide_ico.ico" type="image/x-icon">
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/animate.css/animate.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/bootstrap/dist/css/bootstrap.css" />
 
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.min.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/select2-3.5.2/select2.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/select2-bootstrap/select2-bootstrap.css" />
+         <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css">
         <!-- App styles -->
-        <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
-        <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/helper.css" />
-        <link rel="stylesheet" href="<?= base_url() ?>static/styles/style.css">
-
         <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/fonts/pe-icon-7-stroke/css/helper.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/styles/loader.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/styles/style.css">
-
-        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
-        <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.css" />
-        
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-        <!--<script src="<?= base_url()?>static/js/selectBuscador.js"></script>-->
+        <!-- stylios y scrips para visualizar los documentos
+        -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
     <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
         <!-- color-line START -->
@@ -128,16 +130,18 @@ and open the template in the editor.
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <select class="js-example-basic-single" style="width: 100%" name="especialidad" id="especialidad">
-                                                <option>Seleccione</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
+                                        <div class="col-sm-4">
+                                            <label>Especialidad</label>
+                                            <select class="js-source-states" style="width: 100%" name="especialidad" id="especialidad">
+                                                <option>---Seleccione---</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
                                             </select>
+                                            <span class="help-block"></span>
                                         </div>
                                     </div>
                                 <div class="col-lg-12">
@@ -178,26 +182,53 @@ and open the template in the editor.
         <script src="<?= base_url() ?>static/vendor/jquery-ui/jquery-ui.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/slimScroll/jquery.slimscroll.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery-flot/jquery.flot.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery-flot/jquery.flot.resize.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery-flot/jquery.flot.pie.js"></script>
+        <script src="<?= base_url() ?>static/vendor/flot.curvedlines/curvedLines.js"></script>
+        <script src="<?= base_url() ?>static/vendor/jquery.flot.spline/index.js"></script>
         <script src="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/iCheck/icheck.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/peity/jquery.peity.min.js"></script>
         <script src="<?= base_url() ?>static/vendor/sparkline/index.js"></script>
+        
+        
+        <script src="<?= base_url() ?>static/vendor/select2-3.5.2/select2.min.js"></script>
 
-        <!--Modales alerts-->
+        <script src="<?= base_url() ?>static/vendor/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-bs/js/dataTables.bootstrap.js"></script>
+
+        <!-- DataTables buttons scripts -->
+        <script src="<?= base_url() ?>static/vendor/pdfmake/build/pdfmake.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/pdfmake/build/vfs_fonts.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="<?= base_url() ?>static/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+
+        <!--Alertas scripts-->
         <script src="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.js"></script>
         <script src="<?= base_url() ?>static/vendor/toastr/build/toastr.min.js"></script>
 
         <!-- App scripts -->
+        <script src="<?= base_url() ?>static/scripts/homer.js"></script>
+        <script src="<?= base_url() ?>static/scripts/app/libs/common.js"></script>
+        
+
+        <!-- App scripts -->
         <script type="text/javascript">
-            // In your Javascript (external .js resource or <script> tag)
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
             function base_url() {
                 return "<?= base_url() ?>";
             }
         </script>
+        <script>
+            $(function () {
+                $(".js-source-states").select2();
+                $(".js-source-states-2").select2();
+            });
+        </script>
         <script src="<?= base_url() ?>static/scripts/homer.js"></script>
-        
+        <script src="<?= base_url() ?>static/scripts/app/libs/common.js"></script>
 
         <!--validacion de contraseña -->
 
