@@ -14,13 +14,11 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use Dompdf\Dompdf;
 
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
 
-require_once 'dompdf/autoload.inc.php';
 
 class correo extends CI_Controller{
     
