@@ -83,6 +83,9 @@ and open the template in the editor.
                                             <button class="btn btn-danger" id="" name="" type="button">Salir</button>
                                         </a>
                                     </div>
+                                    <div class="form-group" style="text-align: left;">
+                                        <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
+                                    </div>
                                 </div>
                             </div>
                         </div>

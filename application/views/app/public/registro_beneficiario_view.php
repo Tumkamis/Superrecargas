@@ -41,6 +41,13 @@ and open the template in the editor.
 
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.css" />
+        <style>
+            .ribbon {
+                position:absolute;
+                top:0;
+                right:0;
+            }
+        </style>
     </head>
     <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
         <!-- color-line START -->
@@ -70,11 +77,25 @@ and open the template in the editor.
                             <form role="form" id="form" action="<?= base_url() ?>usuario/registro_beneficiario/insertar_beneficiario" method="post">
                                 <!-- form row -->
                                 <div class="row">
+<!--                                    <div class="form-group col-lg-6">
+                                        <label><h4>Agregar beneficiario</h4></label>
+                                        <label><h4>*Campos obligatorios</h4></label>
+                                    </div>
+                                    <div class="form-group col-lg-6" style="text-align:right;">
+                                        <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
+                                    </div>-->
+                                    <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150" class="ribbon">
                                     <div class="form-group col-lg-12 ">
                                         <label><h4>Agregar beneficiario</h4></label>
                                         <br>
                                         <label><h4>*Campos obligatorios</h4></label>
                                     </div>
+<!--                                    <div class="form-group col-lg-12" style="text-align:right;">
+                                        <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
+                                    </div>-->
+<br>
+<br>
+<br>
                                     <div class="form-group">
                                         <div class="col-lg-12">
                                             <label style="color: blue;">Nombre corto*:</label>
