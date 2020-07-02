@@ -103,6 +103,78 @@ and open the template in the editor.
 
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <label style="color: blue;">Fundación a apoyar*:</label>
+                                            <select class="form-control" style="width: 100%" name="fundacion" id="fundacion">
+                                                <option>---Seleccione---</option>
+                                                <?php
+                                                    if (!is_null($fundaciones)) :
+                                                        foreach ($fundaciones as $fundacion) :
+                                                ?>
+                                                <option value="<?= $fundacion->idfundacion?>"><?=$fundacion->nombre?></option>
+                                                <?php
+                                                        endforeach;
+                                                    endif;
+                                                ?>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <label style="color: blue;">Institución de Asistencia Privada a apoyar*:</label>
+                                            <select class="form-control" style="width: 100%" name="iap" id="iap">
+                                                <option>---Seleccione---</option>
+                                                <?php
+                                                    if (!is_null($iaps)) :
+                                                        foreach ($iaps as $iap) :
+                                                ?>
+                                                <option value="<?= $iap->idiap?>"><?=$iap->nombre?></option>
+                                                <?php
+                                                        endforeach;
+                                                    endif;
+                                                ?>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <label style="color: blue;">Asociación Civil a apoyar*:</label>
+                                            <select class="form-control" style="width: 100%" name="asc" id="asc">
+                                                <option>---Seleccione---</option>
+                                                <?php
+                                                    if (!is_null($asociaciones)) :
+                                                        foreach ($asociaciones as $asociacion) :
+                                                ?>
+                                                <option value="<?= $asociacion->idasc?>"><?=$asociacion->nombre?></option>
+                                                <?php
+                                                        endforeach;
+                                                    endif;
+                                                ?>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <label style="color: blue;">Empresa a apoyar*:</label>
+                                            <select class="form-control js-source-states" style="width: 100%" name="empresa" id="empresa">
+                                                <option>---Seleccione---</option>
+                                                <?php
+                                                    if (!is_null($empresas)) :
+                                                        foreach ($empresas as $empresa) :
+                                                ?>
+                                                <option value="<?= $empresa->idempresa?>"><?=$empresa->nombre?></option>
+                                                <?php
+                                                        endforeach;
+                                                    endif;
+                                                ?>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
                                 <div class="col-lg-12">
                                     <div class="hr-line-dashed">
 
@@ -178,6 +250,9 @@ and open the template in the editor.
         <script type="text/javascript">
             function base_url() {
                 return "<?= base_url() ?>";
+                jQuery(document).ready(function ($) {
+                    loading();
+                });
             }
         </script>
         <script>

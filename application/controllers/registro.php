@@ -31,6 +31,10 @@ class registro extends CI_Controller{
     
     public function index() {
         $data = array();
+        $data['fundaciones']=$this->propietario_model->fundaciones();
+        $data['iaps']=$this->propietario_model->iaps();
+        $data['asociaciones']=$this->propietario_model->asociacionesciviles();
+        $data['empresas']=$this->propietario_model->empresas();
         $data['titulo'] = "Súper Recarga | Registro";
         /**
          * Cargamos la vista completa de la seccion correspondiente
@@ -43,6 +47,10 @@ class registro extends CI_Controller{
         $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
         $this->form_validation->set_rules('telefono2', 'telefono2', 'trim|required|xss_clean');
         $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('fundacion', 'fundacion', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('iap', 'iap', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('asc', 'asc', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('empresa', 'empresa', 'trim|required|xss_clean');
         
         if ($this->form_validation->run()) {
             $usuario=$this->input->post('telefono1');
@@ -69,7 +77,10 @@ class registro extends CI_Controller{
                 $arr_propietario = array();
                 $arr_propietario['telefono']=$this->input->post('telefono1');
                 $arr_propietario['correo'] = $this->input->post('email');
-                $arr_propietario['curp'] = $password;
+                $arr_propietario['idfundacion'] = $this->input->post('fundacion');
+                $arr_propietario['idiap'] = $this->input->post('iap');
+                $arr_propietario['idasc'] = $this->input->post('asc');
+                $arr_propietario['idempresa'] = $this->input->post('empresa');
                 $arr_propietario['contrasena'] = md5($password);
                 $arr_propietario['estatus'] = 1;
                 
