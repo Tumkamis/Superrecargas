@@ -46,14 +46,16 @@ class correo extends CI_Controller{
             //$mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
             $mail->SMTPAuth = true;                                   // Enable SMTP authentication
             //$mail->Username = 'noreply@diatel.com.mx';                     // SMTP username
-            $mail->Username = 'apacan99@gmail.com';                     // SMTP username
-            $mail->Password = 'akpzbktkhirkjrvs';                               // SMTP password
+            //$mail->Username = 'apacan99@gmail.com';                     // SMTP username
+            $mail->Username = 'norespondersuperrecargas@gmail.com';                     // SMTP username
+            //$mail->Password = 'akpzbktkhirkjrvs';                               // SMTP password
+            $mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
             //$mail->Password = 'gdqhijrouwijwbak';                               // SMTP password
             //$mail->Password = 'Armidas2020*';                               // SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-            $mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
             //Recipients
-            $mail->setFrom('apacan99@gmail.com', 'Super Recarga');
+            $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
             //$mail->addAddress('luisdrodiguezg@hotmail.com');     // Add a recipient
             $mail->addAddress('2016313107@uteq.edu.mx');     // Add a recipient
 //            $mail->addAddress('ellen@example.com');               // Name is optional
