@@ -52,8 +52,8 @@ class correo extends CI_Controller{
             $mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
             //$mail->Password = 'gdqhijrouwijwbak';                               // SMTP password
             //$mail->Password = 'Armidas2020*';                               // SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-            $mail->Port = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+            $mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
             //Recipients
             $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
             //$mail->addAddress('luisdrodiguezg@hotmail.com');     // Add a recipient
