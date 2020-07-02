@@ -115,10 +115,10 @@ class registro extends CI_Controller{
                     // Content
                     //$mail->addAttachment('static/pdf/CartaDescuento.pdf');
                     $mail->isHTML(true);                                  // Set email format to HTML
-                    $mail->Subject = 'Confirmación de servicio';
+                    $mail->Subject = 'Confirmación de registro';
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
                     //$mail->Body = 'Correo de comprobación';
-                    $mail->Body = 'Correo de comprobación para servicio esta es su contraseña para acceder '.$password;
+                    $mail->Body = 'Le damos la bienvenida al sistema de recargas teléfonicas Súper Recarga, esta es su contrseña para poder acceder '.$password;
                     $mail->CharSet = 'UTF-8';
 //            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
