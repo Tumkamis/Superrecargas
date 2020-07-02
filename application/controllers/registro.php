@@ -5,12 +5,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * Description of registro
  *
  * @author marioeduardo
  */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
 class registro extends CI_Controller{
     public function __construct() {
         parent::__construct();
@@ -41,6 +46,7 @@ class registro extends CI_Controller{
         
         if ($this->form_validation->run()) {
             $usuario=$this->input->post('telefono1');
+            $correo=$this->input->post('email');
             $datos_propietario = $this->propietario_model->info_propietario($usuario);
             
             if (!is_null($datos_propietario)) {
@@ -67,6 +73,50 @@ class registro extends CI_Controller{
                 $arr_propietario['contrasena'] = md5($password);
                 $arr_propietario['estatus'] = 1;
                 
+                $mail = new PHPMailer(true);
+                try {
+                    //Server settings
+                    $mail->SMTPDebug = 0;                      // Enable verbose debug output
+                    $mail->isSMTP();                                            // Send using SMTP
+                    $mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
+                    //$mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
+                    $mail->SMTPAuth = true;                                   // Enable SMTP authentication
+                    $mail->Username = 'norespondersuperrecargas@gmail.com';                     // SMTP username
+                    //$mail->Password = 'akpzbktkhirkjrvs';                               // SMTP password
+                    //$mail->Password = 'Armidas202020*';                               // SMTP password
+                    $mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                    $mail->Port = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+                    //Recipients
+                    $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
+                    $mail->addAddress($correo);
+                    //$mail->addAddress('noresponda@diatel.com.mx');
+                    //Cambiar a correo de rh de la empresa
+                    //$mail->addAddress('rulp@diatel.com.mx');
+//            $mail->addAddress('ellen@example.com');               // Name is optional
+//            $mail->addReplyTo('info@example.com', 'Information');
+//            $mail->addCC('cc@example.com');
+//            $mail->addBCC('bcc@example.com');
+                    // Attachments
+                    //Para archivos
+//            $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                    // Content
+                    //$mail->addAttachment('static/pdf/CartaDescuento.pdf');
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'Confirmación de servicio';
+//            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
+                    //$mail->Body = 'Correo de comprobación';
+                    $mail->Body = 'Correo de comprobación para servicio esta es su contraseña para acceder '.$password;
+                    $mail->CharSet = 'UTF-8';
+//            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+                    $mail->send();
+                    //echo 'El mensaje se envió correctamente';
+                } catch (Exception $e) {
+                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                }
+
                 $this->propietario_model->insertar($arr_propietario);
                 redirect(base_url() . "login", 'refresh');
             }

@@ -67,7 +67,7 @@ and open the template in the editor.
                     <div class="hpanel">
                         <div class="panel-body" style="background-color: #F2F2F2;">
                             <!-- form start -->
-                            <form role="form" id="form" action="<?= base_url() ?>usuario/registro_nuevo_usuario/insertar_beneficiario" method="post">
+                            <form role="form" id="form" action="<?= base_url() ?>usuario/registro_beneficiario/insertar_beneficiario" method="post">
                                 <!-- form row -->
                                 <div class="row">
                                     <div class="form-group col-lg-12 ">
