@@ -47,4 +47,10 @@ class propietario_model extends CI_Model {
         $query=$this->db->query($cmd);
         return ($query->num_rows() > 0) ? $query->result() : NULL;
     }
+    
+    public function consultar_instituciones($tipo) {
+        $cmd="select * from institucion where tipo='$tipo'";
+        $query=$this->db->query($cmd);
+        return ($query->num_rows() > 0) ? $query->result() : NULL;
+    }
 }

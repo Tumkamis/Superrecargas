@@ -10,6 +10,17 @@ jQuery(document).ready(function ($) {
         this.value = (this.value + '').replace(/[^0-9]/g, '');
     });
     
+    $("#tipo").change(function () {
+        $("#tipo option:selected").each(function () {
+            institucion = $('#tipo').val();
+            $.post("http://localhost/Superrecarga/registro/buscar_institucion", {
+                tipo: institucion
+            }, function (data) {
+                $("#instituciones").html(data);
+            });
+        });
+    });
+    
     $('#correoEnviado').click(function () {
 //        var tel1=document.getElementById("telefono1").value;
 //        tel1.value = (this.value + '').replace(/[^0-9]/g, '');

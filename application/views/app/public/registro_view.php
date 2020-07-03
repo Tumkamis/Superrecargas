@@ -105,72 +105,22 @@ and open the template in the editor.
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Fundación a apoyar*:</label>
-                                            <select class="form-control" style="width: 100%" name="fundacion" id="fundacion">
+                                            <label style="color: blue;">Institución a apoyar*:</label>
+                                            <select class="form-control" style="width: 100%" name="tipo" id="tipo">
                                                 <option>---Seleccione---</option>
-                                                <?php
-                                                    if (!is_null($fundaciones)) :
-                                                        foreach ($fundaciones as $fundacion) :
-                                                ?>
-                                                <option value="<?= $fundacion->idfundacion?>"><?=$fundacion->nombre?></option>
-                                                <?php
-                                                        endforeach;
-                                                    endif;
-                                                ?>
+                                                <option value="1">Fundación</option>
+                                                <option value="2">Institución de Asistencia Privada</option>
+                                                <option value="3">Asociación Civil</option>
+                                                <option value="4">Empresa</option>
                                             </select>
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Institución de Asistencia Privada a apoyar*:</label>
-                                            <select class="form-control" style="width: 100%" name="iap" id="iap">
-                                                <option>---Seleccione---</option>
-                                                <?php
-                                                    if (!is_null($iaps)) :
-                                                        foreach ($iaps as $iap) :
-                                                ?>
-                                                <option value="<?= $iap->idiap?>"><?=$iap->nombre?></option>
-                                                <?php
-                                                        endforeach;
-                                                    endif;
-                                                ?>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <label style="color: blue;">Asociación Civil a apoyar*:</label>
-                                            <select class="form-control" style="width: 100%" name="asc" id="asc">
-                                                <option>---Seleccione---</option>
-                                                <?php
-                                                    if (!is_null($asociaciones)) :
-                                                        foreach ($asociaciones as $asociacion) :
-                                                ?>
-                                                <option value="<?= $asociacion->idasc?>"><?=$asociacion->nombre?></option>
-                                                <?php
-                                                        endforeach;
-                                                    endif;
-                                                ?>
-                                            </select>
-                                            <span class="help-block"></span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <label style="color: blue;">Empresa a apoyar*:</label>
-                                            <select class="form-control js-source-states" style="width: 100%" name="empresa" id="empresa">
-                                                <option>---Seleccione---</option>
-                                                <?php
-                                                    if (!is_null($empresas)) :
-                                                        foreach ($empresas as $empresa) :
-                                                ?>
-                                                <option value="<?= $empresa->idempresa?>"><?=$empresa->nombre?></option>
-                                                <?php
-                                                        endforeach;
-                                                    endif;
-                                                ?>
+                                            <label style="color: blue;">Institución*:</label>
+                                            <select class="form-control" style="width: 100%" name="instituciones" id="instituciones">
+                                                <option></option>
                                             </select>
                                             <span class="help-block"></span>
                                         </div>
