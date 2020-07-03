@@ -31,10 +31,6 @@ class registro extends CI_Controller{
     
     public function index() {
         $data = array();
-        $data['fundaciones']=$this->propietario_model->fundaciones();
-        $data['iaps']=$this->propietario_model->iaps();
-        $data['asociaciones']=$this->propietario_model->asociacionesciviles();
-        $data['empresas']=$this->propietario_model->empresas();
         $data['titulo'] = "Súper Recarga | Registro";
         /**
          * Cargamos la vista completa de la seccion correspondiente

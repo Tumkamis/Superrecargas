@@ -24,30 +24,6 @@ class propietario_model extends CI_Model {
         return TRUE;
     }
     
-    public function fundaciones() {
-        $cmd="select * from fundacion";
-        $query=$this->db->query($cmd);
-        return ($query->num_rows() > 0) ? $query->result() : NULL;
-    }
-    
-    public function iaps() {
-        $cmd="select * from iap";
-        $query=$this->db->query($cmd);
-        return ($query->num_rows() > 0) ? $query->result() : NULL;
-    }
-    
-    public function asociacionesciviles() {
-        $cmd="select * from asociacioncivil";
-        $query=$this->db->query($cmd);
-        return ($query->num_rows() > 0) ? $query->result() : NULL;
-    }
-    
-    public function empresas() {
-        $cmd="select * from empresa";
-        $query=$this->db->query($cmd);
-        return ($query->num_rows() > 0) ? $query->result() : NULL;
-    }
-    
     public function consultar_instituciones($tipo) {
         $cmd="select * from institucion where tipo='$tipo'";
         $query=$this->db->query($cmd);
