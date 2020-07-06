@@ -31,6 +31,7 @@ class registro extends CI_Controller{
     
     public function index() {
         $data = array();
+        $data['tipoinsts'] = $this->propietario_model->tipo_instituciones();
         $data['titulo'] = "Súper Recarga | Registro";
         /**
          * Cargamos la vista completa de la seccion correspondiente

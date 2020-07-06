@@ -108,10 +108,15 @@ and open the template in the editor.
                                             <label style="color: blue;">Institución a apoyar*:</label>
                                             <select class="form-control" style="width: 100%" name="tipo" id="tipo">
                                                 <option>---Seleccione---</option>
-                                                <option value="1">Fundación</option>
-                                                <option value="2">Institución de Asistencia Privada</option>
-                                                <option value="3">Asociación Civil</option>
-                                                <option value="4">Empresa</option>
+                                                <?php
+                                                    if (!is_null($tipoinsts)) :
+                                                        foreach ($tipoinsts as $tipo) :
+                                                ?>
+                                                <option value="<?= $tipo->idtipoinst?>"><?=$tipo->nombre?></option>
+                                                <?php
+                                                        endforeach;
+                                                    endif;
+                                                ?>
                                             </select>
                                             <span class="help-block"></span>
                                         </div>
