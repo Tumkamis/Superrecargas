@@ -69,7 +69,7 @@ and open the template in the editor.
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="password" style="color: blue;">Contraseña:</label>
-                                    <input type="password" title="Por favor ingrese su contraseña" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                    <input type="password" title="Por favor ingresa tu contraseña" placeholder="******" required="" value="" name="password" id="password" class="form-control">
                                     <span class="help-block small"></span>
                                     <?php
                                     if ($this->session->flashdata('usuario_incorrecto')) {
