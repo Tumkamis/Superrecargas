@@ -123,7 +123,7 @@ and open the template in the editor.
                                         <div class="col-lg-6">
                                             <label style="color: blue;">Operador*:</label>
                                             <select name="idoperador" id="idoperador"  class="form-control m-b">
-                                                <option></option>
+                                                <option>---Seleccione---</option>
                                                 <?php
                                                     if (!is_null($operadores)) :
                                                         foreach ($operadores as $operador) :
