@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
     $("#tipo").change(function () {
         $("#tipo option:selected").each(function () {
             institucion = $('#tipo').val();
-            $.post("http://localhost/Superrecarga/registro/buscar_institucion", {
+            $.post("https://superrecarga.com.mx/registro/buscar_institucion", {
                 tipo: institucion
             }, function (data) {
                 $("#instituciones").html(data);
