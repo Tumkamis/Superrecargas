@@ -23,25 +23,34 @@ jQuery(document).ready(function ($) {
     });
     
     $('#correoEnviado').click(function () {
+        
 //        var tel1=document.getElementById("telefono1").value;
 //        tel1.value = (this.value + '').replace(/[^0-9]/g, '');
 //        $("#telefono1").val(tel1);
 //        var tel2=document.getElementById("telefono2").value;
 //        tel2.value = (this.value + '').replace(/[^0-9]/g, '');
 //        $("#telefono2").val(tel2);
-        if (validar('telefono1') == false || validar('telefono2')==false) {
+        if (validar('telefono1') == false || validar('telefono2')==false || validar('tipo')==false || validar('email')==false || validar('instituciones')==false) {
+
+            swal({
+                title: "Alerta",
+                text: "Sus campos no estan validados.",
+                type: "warning"
+            });
+
             return false;
 
         } else {
+
             swal({
                 title: "Registro",
                 text: "Se registro de manera exitosa, se le enviara un correo con su contraseña para acceder",
                 type: "success"
             },
             function () {
-                //location.href = "../login";
-                $("#form").submit();
-            });
+                $('#form').submit();
+            }
+            );
             return false;
         }
 
@@ -62,7 +71,18 @@ jQuery(document).ready(function ($) {
             $("#telefono2").parent().removeClass('has-error');
             $("#telefono2").parent().removeClass('has-feedback');
         }
-
+    });
+    
+    $("#tipo").change(function () {
+        validar('tipo');
+    });
+    
+    $("#email").keyup(function () {
+        validar('email');
+    });
+    
+    $("#instituciones").change(function () {
+        validar('instituciones');
     });
     
     function validar(input){
@@ -137,6 +157,66 @@ jQuery(document).ready(function ($) {
                 $("#telefono2").parent().children("span").text("").hide();
                 $("#telefono2").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
 
+                return true;
+            }
+        }
+        
+        if (input === 'tipo') {
+            var tipo = document.getElementById("tipo").value;
+            if (tipo === '---Seleccione---') {
+                $("#iconotexto").remove();
+                $("#tipo").parent().parent().attr("class", "form-group has-error has-feedback");
+                $("#tipo").parent().children("span").text("Debe seleccionar una opción.").show();
+                $("#tipo").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
+                return false;
+            } else {
+                $("#iconotexto").remove();
+                $("#tipo").parent().parent().attr("class", "form-group has-success has-feedback");
+                $("#tipo").parent().children("span").text("").hide();
+                $("#tipo").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
+                return true;
+            }
+        }
+        
+        if (input === 'email') {
+            var correo1 = document.getElementById("email").value;
+            if (!(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(correo1)) && correo1.length > 0) {
+                $("#iconotexto").remove();
+                $("#email").parent().parent().attr("class", "form-group has-error has-feedback");
+                $("#email").parent().children("span").text("Ingresar un correo valido").show();
+                $("#email").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
+                return false;
+            }
+            else if (correo1.length === 0 || correo1 == "") {
+                $("#iconotexto").remove();
+                $("#email").parent().parent().attr("class", "form-group has-error has-feedback");
+                $("#email").parent().children("span").text("Ingresar correo").show();
+                $("#email").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
+                return false;
+            }
+            else {
+                $("#iconotexto").remove();
+                $("#email").parent().parent().attr("class", "form-group has-success has-feedback");
+                $("#email").parent().children("span").text("").hide();
+                $("#email").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
+
+                return true;
+            }
+        }
+        
+        if (input === 'instituciones') {
+            var tipo = document.getElementById("instituciones").value;
+            if (tipo === 'Selecciona') {
+                $("#iconotexto").remove();
+                $("#instituciones").parent().parent().attr("class", "form-group has-error has-feedback");
+                $("#instituciones").parent().children("span").text("Debe seleccionar una opción.").show();
+                $("#instituciones").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
+                return false;
+            } else {
+                $("#iconotexto").remove();
+                $("#instituciones").parent().parent().attr("class", "form-group has-success has-feedback");
+                $("#instituciones").parent().children("span").text("").hide();
+                $("#instituciones").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
                 return true;
             }
         }
