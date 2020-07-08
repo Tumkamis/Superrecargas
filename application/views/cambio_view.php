@@ -24,7 +24,7 @@ and open the template in the editor.
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
         <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
         <!--<script src="<?= base_url()?>Superrecarga/static/js/validacionRegistro.js"></script>-->
-        <script src="<?= base_url()?>static/js/validacionPassword.js"></script>
+        <script src="<?= base_url()?>Superrecarga/static/js/validacionPassword.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
@@ -85,7 +85,7 @@ and open the template in the editor.
                                     <div class="form-group ">
                                         <div class="col-lg-12"> 
                                             <label style="color: blue;">Ingresa tu nueva contraseña*:</label>
-                                            <input type="password" value="" id="password" class="form-control solo-numero" name="password"  placeholder="*Campo requerido">
+                                            <input type="password" value="" id="password1" class="form-control solo-numero" name="password1"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>

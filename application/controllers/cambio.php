@@ -30,7 +30,7 @@ class cambio extends CI_Controller {
     
     public function cambio_post() {
         $idpropietario = $this->session->userdata('idprop');
-        $password = $this->input->post('password');
+        $password = $this->input->post('password1');
         
         $arr_update = array(
             "contrasena" => md5($password),
