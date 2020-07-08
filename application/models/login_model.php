@@ -32,10 +32,17 @@ class login_model extends CI_Model {
         /*$this->db->select('idusu');
         $this->db->where('correousu', $username);
         $this->db->where("passwordusu LIKE BINARY '".$password."'");*/
-        $cmd = "SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus = 1";
+        $cmd = "SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0";
         $query = $this->db->query($cmd);
         //die(var_dump($query->num_rows()));
         return ($query->num_rows() === 1) ? $query->row() : NULL;
+    }
+    
+    public function cambiar_password($id, $data) {
+        $this->db->where('idpropietario', $id);
+        $this->db->update('propietario', $data);
+
+        return TRUE;
     }
 
     public function cargar_modulos($id) {

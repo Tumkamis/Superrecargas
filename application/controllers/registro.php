@@ -90,7 +90,7 @@ class registro extends CI_Controller{
                 $arr_propietario['correo'] = $this->input->post('email');
                 $arr_propietario['idinstitucion'] = $this->input->post('instituciones');
                 $arr_propietario['contrasena'] = md5($password);
-                $arr_propietario['estatus'] = 1;
+                $arr_propietario['estatus'] = 2;
                 
                 $mail = new PHPMailer(true);
                 try {
