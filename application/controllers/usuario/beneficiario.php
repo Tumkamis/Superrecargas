@@ -21,12 +21,14 @@ class beneficiario extends CI_Controller {
         }
         $this->load->model('usuario_model');
         $this->load->model('beneficiario_model');
+        $this->load->model('propietario_model');
         //Modelos
     }
 
     public function index() {
         $idpropietario = $this->session->userdata('idprop');
         $nombrepropietario=$this->session->userdata('telefono');
+        $rutaimg=$this->propietario_model->ruta_img($idpropietario);
         $data = array();
 //        $data['municipios'] = $this->municipio_model->consultar_municipios();
 //
@@ -52,6 +54,7 @@ class beneficiario extends CI_Controller {
         $data['titulo'] = "Súper Recarga | Beneficiarios";
         $data['telefono'] = $nombrepropietario;
         $data['idprop'] = $idpropietario;
+        $data['imagen'] = $rutaimg->img;
         $data['telefonos'] = $this->beneficiario_model->beneficiarios_prop($idpropietario);
         $data['beneficiarios'] = $this->beneficiario_model->beneficiarios_prop_detalle($idpropietario);
         /**

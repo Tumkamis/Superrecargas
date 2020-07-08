@@ -21,12 +21,15 @@ class registro_beneficiario extends CI_Controller{
         $this->load->model('operador_model');
         $this->load->model('paquete_model');
         $this->load->model('beneficiario_model');
+        $this->load->model('propietario_model');
     }
     
     public function index() {
         $data = array();
         $idpropietario = $this->session->userdata('idprop');
         $data['idprop'] = $idpropietario;
+        $rutaimg=$this->propietario_model->ruta_img($idpropietario);
+        $data['imagen'] = $rutaimg->img;
 //        $data['municipios'] = $this->municipio_model->consultar_municipios();
 //
 //        $data['estados'] = $this->estado_model->consultar_estados();
