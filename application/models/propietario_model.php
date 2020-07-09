@@ -41,4 +41,10 @@ class propietario_model extends CI_Model {
         $query=$this->db->query($cmd);
         return ($query->num_rows() == 1) ? $query->row() : NULL;
     }
+    
+    public function ruta_img_correo($id) {
+        $cmd="select img from institucion where idinstitucion='$id'";
+        $query=$this->db->query($cmd);
+        return ($query->num_rows() == 1) ? $query->row() : NULL;
+    }
 }

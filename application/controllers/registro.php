@@ -46,7 +46,7 @@ class registro extends CI_Controller{
             $tipo = $this->input->post('tipo');
             $instituciones = $this->propietario_model->consultar_instituciones($tipo);
             ?>
-                <option>Selecciona</option>
+                <option selected="">Selecciona</option>
                 <?php
             foreach ($instituciones as $fila) {
                 ?>
@@ -92,6 +92,8 @@ class registro extends CI_Controller{
                 $arr_propietario['contrasena'] = md5($password);
                 $arr_propietario['estatus'] = 2;
                 
+                $idinstitucion=$this->input->post('instituciones');
+                $rutaimg=$this->propietario_model->ruta_img_correo($idinstitucion);
                 $mail = new PHPMailer(true);
                 try {
                     //Server settings
@@ -123,10 +125,49 @@ class registro extends CI_Controller{
                     // Content
                     //$mail->addAttachment('static/pdf/CartaDescuento.pdf');
                     $mail->isHTML(true);                                  // Set email format to HTML
-                    $mail->Subject = 'Confirmación de registro';
+                    $mail->Subject = 'SÚPERRECARGA Confirmación de Registro';
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
                     //$mail->Body = 'Correo de comprobación';
-                    $mail->Body = 'Le damos la bienvenida al sistema de recargas teléfonicas Súper Recarga, esta es su contrseña para poder acceder '.$password;
+                    
+                    $mail->AddEmbeddedImage('Superrecarga/static/instituciones/'.$rutaimg->img.'.jpg', 'imagen-inst');
+                    $mail->AddEmbeddedImage('static/Logotipo-Super-Recarga-R.png', 'imagen-sr');
+                    $cuerpo='
+                <html>
+                    <head></head>
+                    <body>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Bienvenido al Registro SÚPERRECARGA
+                        </label>
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            A partir de hoy vas a AHORRAR y APOYAR en todas tus recargas a: 
+                        </label>
+                        <br>
+                        <br>
+                        <img src="cid:imagen-inst" height="250px" width="250px">
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Tu contraseña inicial es: '.$password.'
+                        </label>
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Para tu seguridad, el sistema te solicitará una nueva contraseña en tu primer Login. 
+                        </label>
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Atte 
+                        </label>
+                        <br>
+                        <br>
+                        <img src="cid:imagen-sr" height="150px" width="150px">
+                    </body>
+                </html>'
+                    ;
+                    $mail->Body = $cuerpo;
                     $mail->CharSet = 'UTF-8';
 //            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
