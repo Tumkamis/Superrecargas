@@ -101,8 +101,6 @@ and open the template in the editor.
                                         <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
                                     </div>-->
 <br>
-<br>
-<br>
                                     <div class="form-group">
                                         <div class="col-lg-12">
                                             <label style="color: blue;">Nombre corto*:</label>
