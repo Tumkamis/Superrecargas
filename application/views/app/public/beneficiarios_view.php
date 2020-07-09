@@ -84,7 +84,7 @@ and open the template in the editor.
                                         </a>
                                     </div>
                                     <div class="form-group" style="text-align: left;">
-                                        <img src="<?= base_url()?>Superrecarga/static/instituciones/<?= $imagen?>.jpg" width="200" height="150">
+                                        <img src="<?= base_url()?>static/instituciones/<?= $imagen?>.jpg" width="200" height="150">
                                     </div>
                                 </div>
                             </div>
