@@ -72,7 +72,7 @@ class correo extends CI_Controller{
             $mail->Subject = 'SÚPERRECARGA Confirmación de Registro';
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
             //$mail->Body = 'Correo de comprobación';
-            $mail->AddEmbeddedImage('../static/ALBERGUES-DE-MEXICO,-I.A.P..jpg', 'imagen-inst');
+            $mail->AddEmbeddedImage('static/instituciones/ALBERGUES-DE-MEXICO,-I.A.P..jpg', 'imagen-inst');
             $mail->AddEmbeddedImage('static/Logotipo-Super-Recarga-R.png', 'imagen-sr');
             $cuerpo='
                 <html>

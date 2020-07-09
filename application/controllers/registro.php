@@ -129,7 +129,7 @@ class registro extends CI_Controller{
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
                     //$mail->Body = 'Correo de comprobación';
                     
-                    $mail->AddEmbeddedImage('../static/instituciones/'.$rutaimg->img.'.jpg', 'imagen-inst');
+                    $mail->AddEmbeddedImage('static/instituciones/'.$rutaimg->img.'.jpg', 'imagen-inst');
                     $mail->AddEmbeddedImage('static/Logotipo-Super-Recarga-R.png', 'imagen-sr');
                     $cuerpo='
                 <html>
