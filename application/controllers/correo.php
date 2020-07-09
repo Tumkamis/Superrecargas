@@ -69,90 +69,49 @@ class correo extends CI_Controller{
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Prueba 2 con HTML';
+            $mail->Subject = 'SÚPERRECARGA Confirmación de Registro';
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
             //$mail->Body = 'Correo de comprobación';
-            $cuerpo='<div class="row">
-                        <div class="col-xs-12" align="right">
-                            <label style="font-family: sans-serif; font-size: 14px">
-                                CIUDAD DE MEXICO, Ciudad De Mexico a 20 de Junio de 2020
-                                <br>
-                            </label>
-                        </div>
+            $mail->AddEmbeddedImage('../static/ALBERGUES-DE-MEXICO,-I.A.P..jpg', 'imagen-inst');
+            $mail->AddEmbeddedImage('static/Logotipo-Super-Recarga-R.png', 'imagen-sr');
+            $cuerpo='
+                <html>
+                    <head></head>
+                    <body>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Bienvenido al Registro SÚPERRECARGA
+                        </label>
                         <br>
-                        <div class="col-xs-12" align="left">
-                            <label style="font-family: sans-serif; font-size: 14px">
-                                Empresa (el Patrón):
-                                <br>
-                                <br>
-                            </label>
-                        </div>
-                        <div class="col-xs-12" align="left">
-                            <label style="font-family: sans-serif; font-size: 14px">
-                                Nubia Paola Montanez Martinez con CURP/RFC MOMN770815MDFNRB03 y número de celular 5611281413
-(el Deudor), por así convenir a mis intereses y, conforme a lo dispuesto por el artículo 98 y 110 de la Ley
-Federal del Trabajo y 2547, 2548, 2549, 2551 y 255 del Código Civil Federal, por este conducto, atento a la
-relación de trabajo que tengo con el Patrón, le otorgo un mandato, para que en mi nombre y representación y,
-en forma consecutiva e ininterrumpida, realice: a) el descuento a mi salario de la cantidad de $100 pesos 00
-/100 M.N. (en adelante, los “Descuentos”), que se originaron a mi cargo:
-<br>
-<br>
-                            </label>
-                        </div>
-                    </div>
-                <div class="row">
-                <table class="table" style="width:100%" border="1">
-
-                    <!-- thead START -->
-                    <thead>
-
-                        <tr style="font-family: sans-serif; font-size: 14px">
-                            <th>Telefono celular</th>
-                            <th>Monto Recarga y Asistencia</th>
-                        </tr>
-
-                    </thead>
-                    <!--thead END -->
-
-                    <!--tbody START -->
-                    <tbody>
-                        <tr style="font-family: sans-serif; font-size: 14px">
-                            <th>5611281413</th>
-                            <th>$100.00</th>
-                        </tr>
-                    </tbody>
-                    <!--tbody END -->
-
-                </table>
-                <!-- table START -->
-
-            </div>
-            <div class="col-xs-12">
-                            <label style="font-family: sans-serif; font-size: 14px">
-                            <br>
-                            <br>
-                                por la empresa DIATEL, S.A. DE C.V. (el “Acreditante” ), documentados y aceptados en los TÉRMINOS Y
-CONDICIONES de su APP denominada SÚPER RECARGA; y, b) la entrega de los Descuentos mediante
-descuento a mi nómina dentro de un plazo que no excederá de la fecha en que reciba mi salario. El presente
-mandato se otorga al Patrón con el carácter de irrevocable, en términos del artículo 2,596 del Código Civil
-Federal, por ser un medio para cumplir la obligación adquirida de pago contraída por el Deudor; y sólo podrá
-revocarse conforme a los términos establecidos en los TÉRMINOS Y CONDICIONES ya mencionados. El
-primer descuento para pago deberá realizarse en el siguiente periodo de pago. Por lo tanto, a partir de esta fecha
-iniciarán las fechas de descuento y pago del servicio.
-<br>
-<br>
-                            </label>
-                        </div>
-                        <div class="col-xs-12">
-                            <label style="font-family: sans-serif; font-size: 14px">
-En caso de que la relación de trabajo entre el Deudor y el Patrón se termine o rescinda por cualquier causa, y
-siempre y cuando así lo indique el Deudor, el Patrón realizará, de igual forma y, en ejecución del mandato, el
-descuento al importe del finiquito o de la liquidación a que tenga derecho, de la cantidad que, a esa fecha,
-corresponda para efectos de extender el servicio.
-                            </label>
-                        </div>';
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            A partir de hoy vas a AHORRAR y APOYAR en todas tus recargas a: 
+                        </label>
+                        <br>
+                        <br>
+                        <img src="cid:imagen-inst" height="250px" width="250px">
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Tu contraseña inicial es: rshgh 
+                        </label>
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Para tu seguridad, el sistema te solicitará una nueva contraseña en tu primer Login. 
+                        </label>
+                        <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            Atte 
+                        </label>
+                        <br>
+                        <br>
+                        <img src="cid:imagen-sr" height="150px" width="150px">
+                    </body>
+                </html>'
+                    ;
             $mail->Body = $cuerpo;
-            
+            $mail->CharSet = 'UTF-8';
 //            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
