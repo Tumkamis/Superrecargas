@@ -19,7 +19,16 @@ class Auth extends CI_Controller {
             $datos_propietario = $this->login_model->consultar_propietario($correousu, $passwordusu);
 
             if (!is_null($datos_propietario)) {
-                
+                $datos_monto=$this->login_model->monto($datos_propietario->idpropietario);
+                $monto_actual=0;
+                if(!is_null($datos_monto)){
+                    foreach ($datos_monto as $monto_individual){
+                        $monto_actual=$monto_actual+$monto_individual->precio;
+                    }
+                }
+                else{
+                    $monto_actual=0;
+                }
                 if($datos_propietario->estatus==1){
                     $arreglo_sesiones = array(
                         //controlador               base
@@ -31,6 +40,7 @@ class Auth extends CI_Controller {
                         'telefono' => $datos_propietario->telefono,
                         'empresa' => $datos_propietario->empresa,
                         'correousu' => $datos_propietario->correo,
+                        'monto' => $monto_actual,
                         'is_login' => TRUE
                     );
                     $this->session->set_userdata($arreglo_sesiones);
@@ -50,6 +60,7 @@ class Auth extends CI_Controller {
                         'telefono' => $datos_propietario->telefono,
                         'empresa' => $datos_propietario->empresa,
                         'correousu' => $datos_propietario->correo,
+                        'monto' => $monto_actual,
                         'is_login' => TRUE
                     );
                     $this->session->set_userdata($arreglo_sesiones);

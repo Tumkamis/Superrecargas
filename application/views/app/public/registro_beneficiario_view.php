@@ -22,7 +22,7 @@ and open the template in the editor.
         <link rel="shortcut icon" href="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" type="image/x-icon">
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
         <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="<?= base_url()?>Superrecarga/static/js/validacionBeneficiario.js"></script>
+        <script src="<?= base_url()?>static/js/validacionBeneficiario.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
@@ -84,7 +84,7 @@ and open the template in the editor.
                                     <div class="form-group col-lg-6" style="text-align:right;">
                                         <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
                                     </div>-->
-                                    <img src="<?= base_url()?>static/instituciones/<?= $imagen?>.jpg" width="200" height="150" class="ribbon">
+                                    <img src="<?= base_url()?>static/<?= $imagen?>.jpg" width="200" height="150" class="ribbon">
                                     <br>
                                     <br>
                                     <br>
@@ -101,10 +101,12 @@ and open the template in the editor.
                                         <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
                                     </div>-->
 <br>
+<br>
+<br>
                                     <div class="form-group">
                                         <div class="col-lg-12">
                                             <label style="color: blue;">Nombre corto*:</label>
-                                            <input type="text" value="" id="nombre" class="form-control letras" name="nombre"  placeholder="*Campo requerido">
+                                            <input type="text" value="" id="nombre" class="form-control" name="nombre"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
 
                                         </div>

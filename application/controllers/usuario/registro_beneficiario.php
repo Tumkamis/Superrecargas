@@ -89,6 +89,7 @@ class registro_beneficiario extends CI_Controller{
     }
     
     public function insertar_beneficiario() {
+        date_default_timezone_set('America/Mexico_City');
         $this->form_validation->set_rules('nombre', 'nombre', 'trim|required|xss_clean');
         $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
         $this->form_validation->set_rules('idpaquete', 'idpaquete', 'trim|required|xss_clean');

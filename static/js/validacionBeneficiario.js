@@ -122,7 +122,7 @@ jQuery(document).ready(function ($) {
                 return false;
             }
 
-            if (!/^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i.test(nombre)) {
+            if (!/^[a-z\d\-_\s]+$/i.test(nombre)) {
                 $("#iconotexto").remove();
                 $("#nombre").parent().parent().attr("class", "form-group has-error has-feedback");
                 $("#nombre").parent().children("span").text("No se aceptan caracteres especiales.").show();
@@ -131,12 +131,22 @@ jQuery(document).ready(function ($) {
             }
 
             else {
-                $("#iconotexto").remove();
-                $("#nombre").parent().parent().attr("class", "form-group has-success has-feedback");
-                $("#nombre").parent().children("span").text("").hide();
-                $("#nombre").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
+                var espacever=nombre.charAt(nombre.length-1);
+                if(espacever==' '){
+                    $("#iconotexto").remove();
+                    $("#nombre").parent().parent().attr("class", "form-group has-error has-feedback");
+                    $("#nombre").parent().children("span").text("Existe un espacio al final.").show();
+                    $("#nombre").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
+                    return false;
+                }
+                else{
+                    $("#iconotexto").remove();
+                    $("#nombre").parent().parent().attr("class", "form-group has-success has-feedback");
+                    $("#nombre").parent().children("span").text("").hide();
+                    $("#nombre").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
 
-                return true;
+                    return true; 
+                }
             }
         }
         
