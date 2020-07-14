@@ -21,7 +21,7 @@ and open the template in the editor.
         <!--    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
         <link rel="shortcut icon" href="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" type="image/x-icon">
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
-        <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
+        <script src="<?= base_url()?>Superrecarga/static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
         <script src="<?= base_url()?>static/js/validacionBeneficiario.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
@@ -201,7 +201,7 @@ and open the template in the editor.
         <script src="<?= base_url() ?>static/vendor/sparkline/index.js"></script>
 
         <!--Modales alerts-->
-        <script src="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.js"></script>
+        <script src="<?= base_url() ?>Superrecarga/static/vendor/sweetalert/lib/sweet-alert.js"></script>
         <script src="<?= base_url() ?>static/vendor/toastr/build/toastr.min.js"></script>
 
         <!-- App scripts -->

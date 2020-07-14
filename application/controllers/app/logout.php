@@ -134,7 +134,7 @@ class Logout extends CI_Controller {
                 //$mail->addAddress($correo);
                 //$mail->addAddress('rulp@diatel.com.mx');
                 $mail->addAddress('clubtcr@hotmail.com');
-                $mail->addAddress('lalo_93k_cfl@hotmail.com');
+                //$mail->addAddress('lalo_93k_cfl@hotmail.com');
                 //Para archivos
 //            $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
