@@ -62,7 +62,7 @@ class Logout extends CI_Controller {
             $beneficiarios= $this->beneficiario_model->beneficiarios_prop_detalle($idpropietario);
             $cuerpopython='';
             foreach ($beneficiarios as $beneficiario){
-                $cuerpopython.=$telefono.','.$beneficiario->telefono.','.$beneficiario->nomoperador.','.$beneficiario->preciopaquete.'<br>';
+                $cuerpopython.=$telefono.','.$beneficiario->telefono.','.$beneficiario->nomoperador.','.$beneficiario->preciopaquete.',<br>';
             }
             $fecha=date('Y-m-d');
             $hora=date('H:i:s');
@@ -143,7 +143,7 @@ class Logout extends CI_Controller {
                 $mail->Subject = $fecha.'|'.$hora;
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
                 //$mail->Body = 'Correo de comprobación';
-                $mail->Body = $cuerpo;
+                $mail->Body = $cuerpopython;
                 $mail->CharSet = 'UTF-8';
 //            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
