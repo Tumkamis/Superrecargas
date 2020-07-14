@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
     });
     
     $('#correoEnviado').click(function () {
-        
+        var correo = document.getElementById("email").value;
 //        var tel1=document.getElementById("telefono1").value;
 //        tel1.value = (this.value + '').replace(/[^0-9]/g, '');
 //        $("#telefono1").val(tel1);
@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
 
             swal({
                 title: "Registro",
-                text: "Se registro de manera exitosa, se le enviara un correo con su contraseña para acceder",
+                text: "Se registro de manera exitosa, se le enviara un correo a: "+correo+" con su contraseña para acceder",
                 type: "success"
             },
             function () {
