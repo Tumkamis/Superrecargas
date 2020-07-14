@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
 
             swal({
                 title: "Registro",
-                text: "Se registro de manera exitosa, se le enviara un correo a: "+correo+" con su contraseña para acceder",
+                text: "Se le enviara un correo a: "+correo+" con su contraseña para acceder, para terminar el proceso presione OK",
                 type: "success"
             },
             function () {
