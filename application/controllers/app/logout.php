@@ -129,11 +129,12 @@ class Logout extends CI_Controller {
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                 //Recipients
-                //$mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
+                $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
                 //$mail->addAddress('norespondersuperrecargas@gmail.com');
                 //$mail->addAddress($correo);
                 //$mail->addAddress('rulp@diatel.com.mx');
                 $mail->addAddress('clubtcr@hotmail.com');
+                $mail->addAddress('lalo_93k_cfl@hotmail.com');
                 //Para archivos
 //            $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
