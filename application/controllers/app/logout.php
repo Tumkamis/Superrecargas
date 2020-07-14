@@ -24,6 +24,7 @@ class Logout extends CI_Controller {
     }
     
     public function index() {
+        date_default_timezone_set('America/Mexico_City');
 //        $arreglo_sesiones_propietario = array(
 //            'idprop' => FALSE,
 //            'nombre' => FALSE,
@@ -59,6 +60,12 @@ class Logout extends CI_Controller {
         
         if($monto_final>$monto_inicial){
             $beneficiarios= $this->beneficiario_model->beneficiarios_prop_detalle($idpropietario);
+            $cuerpopython='';
+            foreach ($beneficiarios as $beneficiario){
+                $cuerpopython.=$telefono.','.$beneficiario->telefono.','.$beneficiario->nomoperador.','.$beneficiario->preciopaquete.'<br>';
+            }
+            $fecha=date('Y-m-d');
+            $hora=date('H:i:s');
             $cuerpo='<html><head></head><body>
             <style type="text/css">
             .ui-helper-center {
@@ -122,17 +129,17 @@ class Logout extends CI_Controller {
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                 //Recipients
-                $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
-                $mail->addAddress('norespondersuperrecargas@gmail.com');
+                //$mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
+                //$mail->addAddress('norespondersuperrecargas@gmail.com');
                 //$mail->addAddress($correo);
-                $mail->addAddress('rulp@diatel.com.mx');
-                //$mail->addAddress('clubtcr@hotmail.com');
+                //$mail->addAddress('rulp@diatel.com.mx');
+                $mail->addAddress('clubtcr@hotmail.com');
                 //Para archivos
 //            $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                 // Content
                 $mail->isHTML(true);                                  // Set email format to HTML
-                $mail->Subject = 'Alta de beneficiarios';
+                $mail->Subject = $fecha.'|'.$hora;
 //            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
                 //$mail->Body = 'Correo de comprobación';
                 $mail->Body = $cuerpo;
