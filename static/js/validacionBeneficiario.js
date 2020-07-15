@@ -68,15 +68,16 @@ jQuery(document).ready(function ($) {
 
         } else {
 
-            swal({
-                title: "Registro",
-                text: "Se ha añadido un nuevo número teléfonico",
-                type: "success"
-            },
-            function () {
-                $('#form').submit();
-            }
-            );
+//            swal({
+//                title: "Registro",
+//                text: "Se ha añadido un nuevo número teléfonico",
+//                type: "success"
+//            },
+//            function () {
+//                $('#form').submit();
+//            }
+//            );
+            addbeneficiario();
             return false;
         }
     });
@@ -258,5 +259,32 @@ jQuery(document).ready(function ($) {
                 return true;
             }
         }
+    }
+    
+    function addbeneficiario() {
+        $.ajax({
+            url: "https://superrecarga.com.mx/Superrecarga/usuario/registro_beneficiario/insertar_beneficiario",
+            type: "post",
+            dataType: "json",
+            data: $("#form").serialize(),
+            success: function (json) {
+                swal({
+                    title: "Registro",
+                    text: "Se ha añadido un nuevo número teléfonico",
+                    type: "success"
+                },
+                function () {
+                    location.href = "https://superrecarga.com.mx/usuario/beneficiario";
+                });
+            },
+            error: function (a,b,c){
+                //alert("No Agregado " + c);
+                swal({
+                    title: "Alerta",
+                    text: "Es posible que el número que intenta ingresar ya este registrado, por favor verifique los datos",
+                    type: "warning"
+                });
+            }
+        });
     }
 });

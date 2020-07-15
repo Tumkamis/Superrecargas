@@ -169,7 +169,7 @@ and open the template in the editor.
                                         <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>usuario/beneficiario" >Cancelar</a>
                                         <button
                                             class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="submit">Guardar</button>
+                                            type="button">Guardar</button>
                                     </div>
                                 </div>
                             </form>

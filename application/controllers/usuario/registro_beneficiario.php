@@ -90,59 +90,119 @@ class registro_beneficiario extends CI_Controller{
     
     public function insertar_beneficiario() {
         date_default_timezone_set('America/Mexico_City');
-        $this->form_validation->set_rules('nombre', 'nombre', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('idpaquete', 'idpaquete', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('idoperador', 'idoperador', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('idpropietario', 'idpropietario', 'trim|required|xss_clean');
         
-        if ($this->form_validation->run()) {
-            $arr_beneficiario = array();
-            $arr_beneficiario['nombrecorto'] = $this->input->post('nombre');
-            $arr_beneficiario['telefono'] = $this->input->post('telefono1');
-            $arr_beneficiario['idpaquete'] = $this->input->post('idpaquete');
-            $arr_beneficiario['idoperador'] = $this->input->post('idoperador');
-            $arr_beneficiario['idpropietario'] = $this->input->post('idpropietario');
-            $arr_beneficiario['fecharegistro'] = date('Y-m-d');
-            $arr_beneficiario['estatus'] = 1;
+        if ($this->input->is_ajax_request()) {
+            $this->form_validation->set_rules('nombre', 'nombre', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('idpaquete', 'idpaquete', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('idoperador', 'idoperador', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('idpropietario', 'idpropietario', 'trim|required|xss_clean');
             
-            $tel = $this->input->post('telefono1');
+            if ($this->form_validation->run()) {
+                $arr_beneficiario = array();
+                $arr_beneficiario['nombrecorto'] = $this->input->post('nombre');
+                $arr_beneficiario['telefono'] = $this->input->post('telefono1');
+                $arr_beneficiario['idpaquete'] = $this->input->post('idpaquete');
+                $arr_beneficiario['idoperador'] = $this->input->post('idoperador');
+                $arr_beneficiario['idpropietario'] = $this->input->post('idpropietario');
+                $arr_beneficiario['fecharegistro'] = date('Y-m-d');
+                $arr_beneficiario['estatus'] = 1;
 
-            $variable = $this->beneficiario_model->existente($tel);
+                $tel = $this->input->post('telefono1');
 
-            //se valida que si existe el nombre de la materia ya no se registre dos veces
-            if (!is_null($variable)) {
+                $variable = $this->beneficiario_model->existente($tel);
 
-                if ($variable->estatus == 0) {
-                    $idbene = $variable->idbeneficiario;
-                    $this->beneficiario_model->activar($idbene);
-                    redirect(base_url() . 'usuario/beneficiario', 'refresh');
+                //se valida que si existe el nombre de la materia ya no se registre dos veces
+                if (!is_null($variable)) {
+
+                    if ($variable->estatus == 0) {
+                        $idbene = $variable->idbeneficiario;
+                        $this->beneficiario_model->activar($idbene);
+                        echo json_encode(array("response_code" => 200, "evento_id" => $idbene));
+                        //redirect(base_url() . 'usuario/beneficiario', 'refresh');
+                    } else {
+                        //$this->session->set_flashdata('materia_inco', 'La materia ya existe');
+                        //redirect(base_url() . 'usuario/beneficiario', 'refresh');
+                        http_error(403);
+                    }
                 } else {
-                    //$this->session->set_flashdata('materia_inco', 'La materia ya existe');
-                    redirect(base_url() . 'usuario/beneficiario', 'refresh');
-                }
-            } else {
 
-                $idbeneficiario=$this->beneficiario_model->insertar($arr_beneficiario);
-                
-                $datos_beneficiario=$this->beneficiario_model->consultar_beneficiario($idbeneficiario);
-                $arr_alta = array();
-                $arr_alta['idbeneficiario'] = $idbeneficiario;
-                $arr_alta['telefono'] = $datos_beneficiario->telefono;
-                $arr_alta['idpaquete'] = $datos_beneficiario->idpaquete;
-                $arr_alta['idoperador'] = $datos_beneficiario->idoperador;
-                $arr_alta['fecha'] = date('Y-m-d');
-                
-                $this->beneficiario_model->insertar_alta($arr_alta);
-                
-                redirect(base_url() . 'usuario/beneficiario', 'refresh');
+                    $idbeneficiario = $this->beneficiario_model->insertar($arr_beneficiario);
+                    
+                    $datos_beneficiario = $this->beneficiario_model->consultar_beneficiario($idbeneficiario);
+                    $arr_alta = array();
+                    $arr_alta['idbeneficiario'] = $idbeneficiario;
+                    $arr_alta['telefono'] = $datos_beneficiario->telefono;
+                    $arr_alta['idpaquete'] = $datos_beneficiario->idpaquete;
+                    $arr_alta['idoperador'] = $datos_beneficiario->idoperador;
+                    $arr_alta['fecha'] = date('Y-m-d');
+
+                    $this->beneficiario_model->insertar_alta($arr_alta);
+                    echo json_encode(array("response_code" => 200, "evento_id" => $idbeneficiario));
+                    //redirect(base_url() . 'usuario/beneficiario', 'refresh');
+                }
             }
-            
-            //$this->beneficiario_model->insertar($arr_beneficiario);
-            //redirect(base_url() . "usuario/beneficiario", 'refresh');
+            else{
+                http_error(403);
+            }
         }
-        else {
-            var_dump(validation_errors());
+        else{
+            http_error(400);
         }
+        
+//        $this->form_validation->set_rules('nombre', 'nombre', 'trim|required|xss_clean');
+//        $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
+//        $this->form_validation->set_rules('idpaquete', 'idpaquete', 'trim|required|xss_clean');
+//        $this->form_validation->set_rules('idoperador', 'idoperador', 'trim|required|xss_clean');
+//        $this->form_validation->set_rules('idpropietario', 'idpropietario', 'trim|required|xss_clean');
+//        
+//        if ($this->form_validation->run()) {
+//            $arr_beneficiario = array();
+//            $arr_beneficiario['nombrecorto'] = $this->input->post('nombre');
+//            $arr_beneficiario['telefono'] = $this->input->post('telefono1');
+//            $arr_beneficiario['idpaquete'] = $this->input->post('idpaquete');
+//            $arr_beneficiario['idoperador'] = $this->input->post('idoperador');
+//            $arr_beneficiario['idpropietario'] = $this->input->post('idpropietario');
+//            $arr_beneficiario['fecharegistro'] = date('Y-m-d');
+//            $arr_beneficiario['estatus'] = 1;
+//            
+//            $tel = $this->input->post('telefono1');
+//
+//            $variable = $this->beneficiario_model->existente($tel);
+//
+//            //se valida que si existe el nombre de la materia ya no se registre dos veces
+//            if (!is_null($variable)) {
+//
+//                if ($variable->estatus == 0) {
+//                    $idbene = $variable->idbeneficiario;
+//                    $this->beneficiario_model->activar($idbene);
+//                    redirect(base_url() . 'usuario/beneficiario', 'refresh');
+//                } else {
+//                    //$this->session->set_flashdata('materia_inco', 'La materia ya existe');
+//                    redirect(base_url() . 'usuario/beneficiario', 'refresh');
+//                }
+//            } else {
+//
+//                $idbeneficiario=$this->beneficiario_model->insertar($arr_beneficiario);
+//                
+//                $datos_beneficiario=$this->beneficiario_model->consultar_beneficiario($idbeneficiario);
+//                $arr_alta = array();
+//                $arr_alta['idbeneficiario'] = $idbeneficiario;
+//                $arr_alta['telefono'] = $datos_beneficiario->telefono;
+//                $arr_alta['idpaquete'] = $datos_beneficiario->idpaquete;
+//                $arr_alta['idoperador'] = $datos_beneficiario->idoperador;
+//                $arr_alta['fecha'] = date('Y-m-d');
+//                
+//                $this->beneficiario_model->insertar_alta($arr_alta);
+//                
+//                redirect(base_url() . 'usuario/beneficiario', 'refresh');
+//            }
+//            
+//            //$this->beneficiario_model->insertar($arr_beneficiario);
+//            //redirect(base_url() . "usuario/beneficiario", 'refresh');
+//        }
+//        else {
+//            var_dump(validation_errors());
+//        }
     }
 }
