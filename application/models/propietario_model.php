@@ -21,7 +21,8 @@ class propietario_model extends CI_Model {
     
     public function insertar($arr) {
         $this->db->insert('propietario', $arr);
-        return TRUE;
+        return $this->db->insert_id();
+        //return TRUE;
     }
     
     public function tipo_instituciones() {
