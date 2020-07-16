@@ -404,4 +404,24 @@ class registro extends CI_Controller{
             http_error(400);
         }
     }
+    
+    public function registroget($fundacion) {
+        $data = array();
+        //Para url con guiones
+        $fundacionguion=str_replace("-", " ", $fundacion);
+        $fundacionn=  rawurldecode($fundacionguion);
+        $infoinst=$this->propietario_model->consultar_institucion($fundacionn);
+        $data['fundacion'] = $infoinst;
+        
+        //Para espacios
+//        $fundacionn=  rawurldecode($fundacion);
+//        $infoinst=$this->propietario_model->consultar_institucion($fundacionn);
+//        $data['fundacion'] = $infoinst;
+        $data['tipoinsts'] = $this->propietario_model->tipo_instituciones();
+        $data['titulo'] = "Súper Recarga | Registro";
+        /**
+         * Cargamos la vista completa de la seccion correspondiente
+         */
+        $data = $this->load->view('app/public/registroget_view', $data, FALSE);
+    }
 }
