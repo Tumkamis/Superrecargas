@@ -235,7 +235,7 @@ jQuery(document).ready(function ($) {
             success: function (json) {
                 swal({
                     title: "Registro",
-                    text: "Se le enviara un correo a: "+correo+" con su contraseña para acceder",
+                    text: "Se le enviara un correo a: "+correo+" con su contraseña para acceder, por favor revise la bandeja de entrada o la de spam",
                     type: "success",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
