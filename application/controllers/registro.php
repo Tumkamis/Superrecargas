@@ -76,7 +76,7 @@ class registro extends CI_Controller{
 
                     $cadena_base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
                     $cadena_base .= '0123456789';
-                    $cadena_base .= '!@#%^&*()_,./<>?;:[]{}\|=+';
+                    //$cadena_base .= '!@#%^&*()_,./<>?;:[]{}\|=+';
 
                     $largo = 9;
                     $password = '';
