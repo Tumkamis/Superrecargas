@@ -88,7 +88,7 @@ and open the template in the editor.
                                 <button class="btn btn-primary btn-block" type="submit">
                                     <i class="fa fa-sign-in"></i> Iniciar sesión
                                 </button>
-                                <a class="text-primary text-right btn-block loader-link" href="<?= base_url() ?>registro" style="margin-top: 25px;">¿No tiene una cuenta? Por favor regístrese </a>
+                                <!--<a class="text-primary text-right btn-block loader-link" href="<?= base_url() ?>registro" style="margin-top: 25px;">¿No tiene una cuenta? Por favor regístrese </a>-->
 
                                 <!--<a class="text-primary text-right btn-block" style="margin-top: 5px;" href="usuario/recuperar_password">¿Olvidó su contraseña? Recuperela aquí</a>
 
