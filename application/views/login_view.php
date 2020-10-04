@@ -65,7 +65,7 @@ and open the template in the editor.
                                     <br>
                                     <br>
                                     <label class="control-label" for="username" style="color: blue;">Número celular (10 dígitos)*:</label>
-                                    <input type="text" placeholder="*Campo obligatorio" title="Por favor ingresa tu número celular" required="" value="" name="username" id="username" class="form-control" autofocus>
+                                    <input type="text" placeholder="*Campo obligatorio" title="Por favor ingresa tu número celular" required="" value="" name="username" id="username" class="form-control" autofocus maxlength="10">
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label" for="password" style="color: blue;">Contraseña:</label>

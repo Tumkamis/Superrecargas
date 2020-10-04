@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
 //        var tel2=document.getElementById("telefono2").value;
 //        tel2.value = (this.value + '').replace(/[^0-9]/g, '');
 //        $("#telefono2").val(tel2);
-        if (validar('telefono1') == false || validar('telefono2')==false || validar('email')==false) {
+        if (validar('telefono1') == false || validar('telefono2')==false || validar('email')==false || validar('banco')==false) {
 
             swal({
                 title: "Alerta",
@@ -63,6 +63,10 @@ jQuery(document).ready(function ($) {
     
     $("#email").keyup(function () {
         validar('email');
+    });
+    
+    $("#banco").change(function () {
+        validar('banco');
     });
     
     function validar(input){
@@ -166,6 +170,23 @@ jQuery(document).ready(function ($) {
                 return true;
             }
         }
+        
+        if (input === 'banco') {
+            var banco = document.getElementById("banco").value;
+            if (banco === '---Seleccione---') {
+                $("#iconotexto").remove();
+                $("#banco").parent().parent().attr("class", "form-group has-error has-feedback");
+                $("#banco").parent().children("span").text("Debe seleccionar una opción.").show();
+                $("#banco").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
+                return false;
+            } else {
+                $("#iconotexto").remove();
+                $("#banco").parent().parent().attr("class", "form-group has-success has-feedback");
+                $("#banco").parent().children("span").text("").hide();
+                $("#banco").parent().append("<span id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback' style='text-align-last: left;'></span>");
+                return true;
+            }
+        }
     }
     
     function addcuenta() {
@@ -173,7 +194,8 @@ jQuery(document).ready(function ($) {
         var idinstitucion = document.getElementById("instituciones").value;
         var telefono = document.getElementById("telefono1").value;
         $.ajax({
-            url: "https://superrecarga.com.mx/Superrecarga/registro/registro_post",
+            url: "http://localhost/SuperrecargaLocal/registro/registro_post",
+            //url: "http://superrecarga.com.mx/Superrecarga/registro/registro_post",
             type: "post",
             dataType: "json",
             data: $("#form").serialize(),
@@ -193,7 +215,8 @@ jQuery(document).ready(function ($) {
                         if(isConfirm){
                             //location.href = "../usuario/beneficiario/eliminar/"+elem.attr('data-id');
                             $.ajax({
-                                url: "https://superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
+                                url: "http://localhost/SuperrecargaLocal/registro/reenviarcorreo",
+                                //url: "http://superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
                                 type: "post",
                                 dataType: "json",
                                 data: {
@@ -215,7 +238,8 @@ jQuery(document).ready(function ($) {
                             });
                         }
                         else{
-                            location.href = "https://superrecarga.com.mx/login";
+                            location.href = "http://localhost/SuperrecargaLocal/login";
+                            //location.href = "http://superrecarga.com.mx/Superrecarga/login";
                         }
                 });
             },

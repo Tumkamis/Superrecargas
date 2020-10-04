@@ -40,6 +40,7 @@ class Auth extends CI_Controller {
                         'telefono' => $datos_propietario->telefono,
                         'empresa' => $datos_propietario->empresa,
                         'correousu' => $datos_propietario->correo,
+                        'idinst' => $datos_propietario->idinstitucion,
                         'monto' => $monto_actual,
                         'is_login' => TRUE
                     );
@@ -60,6 +61,7 @@ class Auth extends CI_Controller {
                         'telefono' => $datos_propietario->telefono,
                         'empresa' => $datos_propietario->empresa,
                         'correousu' => $datos_propietario->correo,
+                        'idinst' => $datos_propietario->idinstitucion,
                         'monto' => $monto_actual,
                         'is_login' => TRUE
                     );

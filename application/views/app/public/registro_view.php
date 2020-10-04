@@ -22,8 +22,8 @@ and open the template in the editor.
         <link rel="shortcut icon" href="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" type="image/x-icon">
         <link rel="icon" href="<?= base_url() ?>static\images\logos\logo_aide_ico.ico" type="image/x-icon">
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
-        <script src="<?= base_url()?>Superrecarga/static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="<?= base_url()?>Superrecarga/static/js/validacionRegistro.js"></script>
+        <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
+        <script src="<?= base_url()?>static/js/validacionRegistro.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
@@ -84,14 +84,14 @@ and open the template in the editor.
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
                                             <label style="color: blue;">Número celular (10 dígitos)*:</label>
-                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido">
+                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
                                             <label style="color: blue;">Repetir número celular*:</label>
-                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido">
+                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -159,6 +159,7 @@ and open the template in the editor.
                     <br /> <small>Desarrollado por <a href="http://cidtai.uteq.edu.mx">CIDTAI - UTEQ</a></small>
                 </div>
             </div>-->
+            </div>
         </div>
 
         <!-- login-container END -->
@@ -193,7 +194,7 @@ and open the template in the editor.
         <script src="<?= base_url() ?>static/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
 
         <!--Alertas scripts-->
-        <script src="<?= base_url() ?>Superrecarga/static/vendor/sweetalert/lib/sweet-alert.js"></script>
+        <script src="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.js"></script>
         <script src="<?= base_url() ?>static/vendor/toastr/build/toastr.min.js"></script>
 
         <!-- App scripts -->

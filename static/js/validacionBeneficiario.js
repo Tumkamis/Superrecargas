@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
             return false;
 
         } else {
-
+//Anterior
 //            swal({
 //                title: "Registro",
 //                text: "Se ha añadido un nuevo número teléfonico",
@@ -77,6 +77,7 @@ jQuery(document).ready(function ($) {
 //                $('#form').submit();
 //            }
 //            );
+
             addbeneficiario();
             return false;
         }
@@ -122,7 +123,8 @@ jQuery(document).ready(function ($) {
                 $("#nombre").parent().append("<span id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback' style='text-align-last: left;'></span>");
                 return false;
             }
-
+            ///^(?=.{1,50}$)[a-z]+(?:['_.\s][a-z]+)*$/i
+            ///^\w+$/i
             if (!/^[a-z\d\-_\s]+$/i.test(nombre)) {
                 $("#iconotexto").remove();
                 $("#nombre").parent().parent().attr("class", "form-group has-error has-feedback");
@@ -263,7 +265,8 @@ jQuery(document).ready(function ($) {
     
     function addbeneficiario() {
         $.ajax({
-            url: "https://superrecarga.com.mx/Superrecarga/usuario/registro_beneficiario/insertar_beneficiario",
+            //url: "http://localhost/SuperrecargaLocal/usuario/registro_beneficiario/insertar_beneficiario",
+            url: "http://superrecarga.com.mx/Superrecarga/usuario/registro_beneficiario/insertar_beneficiario",
             type: "post",
             dataType: "json",
             data: $("#form").serialize(),
@@ -274,7 +277,8 @@ jQuery(document).ready(function ($) {
                     type: "success"
                 },
                 function () {
-                    location.href = "https://superrecarga.com.mx/usuario/beneficiario";
+                    //location.href = "http://localhost/SuperrecargaLocal/usuario/beneficiario";
+                    location.href = "http://superrecarga.com.mx/Superrecarga/usuario/beneficiario";
                 });
             },
             error: function (a,b,c){

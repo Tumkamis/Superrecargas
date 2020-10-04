@@ -13,6 +13,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
@@ -37,6 +38,7 @@ class registro extends CI_Controller{
          * Cargamos la vista completa de la seccion correspondiente
          */
         $data = $this->load->view('app/public/registro_view', $data, FALSE);
+        //$data = $this->load->view('error_view', $data, FALSE);
     }
     
     public function buscar_institucion() {
@@ -62,6 +64,7 @@ class registro extends CI_Controller{
             $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
             $this->form_validation->set_rules('telefono2', 'telefono2', 'trim|required|xss_clean');
             $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('banco', 'banco', 'trim|required|xss_clean');
             $this->form_validation->set_rules('instituciones', 'instituciones', 'trim|required|xss_clean');
             
             if ($this->form_validation->run()) {
@@ -92,6 +95,7 @@ class registro extends CI_Controller{
                     $arr_propietario['idinstitucion'] = $this->input->post('instituciones');
                     $arr_propietario['contrasenainicial'] = $password;
                     $arr_propietario['contrasena'] = md5($password);
+                    $arr_propietario['banco'] = $this->input->post('banco');
                     $arr_propietario['estatus'] = 2;
                     
                     $idpropietario=$this->propietario_model->insertar($arr_propietario);
@@ -104,16 +108,19 @@ class registro extends CI_Controller{
                         $mail->SMTPDebug = 0;                      // Enable verbose debug output
                         $mail->isSMTP();                                            // Send using SMTP
                         //$mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
-                        $mail->Host = 'superrecarga.com.mx';                       // Set the SMTP server to send through
+                        $mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
+                        //$mail->Host = 'superrecarga.com.mx';                       // Set the SMTP server to send through
                         $mail->SMTPAuth = true;                                   // Enable SMTP authentication
                         //$mail->Username = 'norespondersuperrecargas@gmail.com';                     // SMTP username
-                        $mail->Username = 'registro@superrecarga.com.mx';                     // SMTP username
+                        $mail->Username = 'registronoreplay@diatel.com.mx';                     // SMTP username
+                        //$mail->Username = 'registro@superrecarga.com.mx';                     // SMTP username
                         //$mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
-                        $mail->Password = 'nlI?Vf{ROl{}>armidas*';                               // SMTP password
+                        //$mail->Password = '/4Rz1ORv6xg?';                               // SMTP password
+                        $mail->Password = 'Zo0M*@AkzeD;';                               // SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                         $mail->Port = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                         //Recipients
-                        $mail->setFrom('registro@superrecarga.com.mx', 'Super Recarga');
+                        $mail->setFrom('registronoreplay@diatel.com.mx', 'Super Recarga');
                         $mail->addAddress($correo);
                         //$mail->addAddress('noresponda@diatel.com.mx');
                         //Cambiar a correo de rh de la empresa
@@ -151,6 +158,10 @@ class registro extends CI_Controller{
                         <br>
                         <img src="cid:imagen-inst" height="250px" width="250px">
                         <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            El número celular registrado es: ' . $usuario . '
+                        </label>
                         <br>
                         <label style="font-family: sans-serif; font-size: 14px">
                             Tu contraseña inicial es: ' . $password . '
@@ -193,133 +204,6 @@ class registro extends CI_Controller{
         else{
             http_error(400);
         }
-        //Validamos los campos del formulario
-//        $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
-//        $this->form_validation->set_rules('telefono2', 'telefono2', 'trim|required|xss_clean');
-//        $this->form_validation->set_rules('email', 'email', 'trim|required|xss_clean');
-//        $this->form_validation->set_rules('instituciones', 'instituciones', 'trim|required|xss_clean');
-//        
-//        if ($this->form_validation->run()) {
-//            $usuario=$this->input->post('telefono1');
-//            $correo=$this->input->post('email');
-//            $datos_propietario = $this->propietario_model->info_propietario($usuario);
-//            
-//            if (!is_null($datos_propietario)) {
-//                redirect(base_url()."login",'refresh');
-//            }
-//            else{
-//                
-//                $cadena_base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-//                $cadena_base .= '0123456789';
-//                $cadena_base .= '!@#%^&*()_,./<>?;:[]{}\|=+';
-//                
-//                $largo=9;
-//                $password = '';
-//                $limite = strlen($cadena_base) - 1;
-//
-//                for ($i = 0; $i < $largo; $i++){
-//                    $password .= $cadena_base[rand(0, $limite)];
-//                }
-//
-//                $arr_propietario = array();
-//                $arr_propietario['telefono']=$this->input->post('telefono1');
-//                $arr_propietario['correo'] = $this->input->post('email');
-//                $arr_propietario['idinstitucion'] = $this->input->post('instituciones');
-//                $arr_propietario['contrasena'] = md5($password);
-//                $arr_propietario['estatus'] = 2;
-//                
-//                $idinstitucion=$this->input->post('instituciones');
-//                $rutaimg=$this->propietario_model->ruta_img_correo($idinstitucion);
-//                $mail = new PHPMailer(true);
-//                try {
-//                    //Server settings
-//                    $mail->SMTPDebug = 0;                      // Enable verbose debug output
-//                    $mail->isSMTP();                                            // Send using SMTP
-//                    $mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
-//                    //$mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
-//                    $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-//                    $mail->Username = 'norespondersuperrecargas@gmail.com';                     // SMTP username
-//                    //$mail->Password = 'akpzbktkhirkjrvs';                               // SMTP password
-//                    //$mail->Password = 'Armidas202020*';                               // SMTP password
-//                    $mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
-//                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-//                    $mail->Port = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-//                    //Recipients
-//                    $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
-//                    $mail->addAddress($correo);
-//                    //$mail->addAddress('noresponda@diatel.com.mx');
-//                    //Cambiar a correo de rh de la empresa
-//                    //$mail->addAddress('rulp@diatel.com.mx');
-////            $mail->addAddress('ellen@example.com');               // Name is optional
-////            $mail->addReplyTo('info@example.com', 'Information');
-////            $mail->addCC('cc@example.com');
-////            $mail->addBCC('bcc@example.com');
-//                    // Attachments
-//                    //Para archivos
-////            $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-////            $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-//                    // Content
-//                    //$mail->addAttachment('static/pdf/CartaDescuento.pdf');
-//                    $mail->isHTML(true);                                  // Set email format to HTML
-//                    $mail->Subject = 'SÚPERRECARGA Confirmación de Registro';
-////            $mail->Body = 'This is the HTML message body <b>in bold!</b>';
-//                    //$mail->Body = 'Correo de comprobación';
-//                    
-//                    $mail->AddEmbeddedImage('static/instituciones/'.$rutaimg->img.'.jpg', 'imagen-inst');
-//                    $mail->AddEmbeddedImage('static/Logotipo-Super-Recarga-R.png', 'imagen-sr');
-//                    $cuerpo='
-//                <html>
-//                    <head></head>
-//                    <body>
-//                        <label style="font-family: sans-serif; font-size: 14px">
-//                            Bienvenido al Registro SÚPERRECARGA
-//                        </label>
-//                        <br>
-//                        <br>
-//                        <label style="font-family: sans-serif; font-size: 14px">
-//                            A partir de hoy vas a AHORRAR y APOYAR en todas tus recargas a: 
-//                        </label>
-//                        <br>
-//                        <br>
-//                        <img src="cid:imagen-inst" height="250px" width="250px">
-//                        <br>
-//                        <br>
-//                        <label style="font-family: sans-serif; font-size: 14px">
-//                            Tu contraseña inicial es: '.$password.'
-//                        </label>
-//                        <br>
-//                        <br>
-//                        <label style="font-family: sans-serif; font-size: 14px">
-//                            Para tu seguridad, el sistema te solicitará una nueva contraseña en tu primer Login. 
-//                        </label>
-//                        <br>
-//                        <br>
-//                        <label style="font-family: sans-serif; font-size: 14px">
-//                            Atte 
-//                        </label>
-//                        <br>
-//                        <br>
-//                        <img src="cid:imagen-sr" height="150px" width="150px">
-//                    </body>
-//                </html>'
-//                    ;
-//                    $mail->Body = $cuerpo;
-//                    $mail->CharSet = 'UTF-8';
-////            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-//
-//                    $mail->send();
-//                    //echo 'El mensaje se envió correctamente';
-//                } catch (Exception $e) {
-//                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-//                }
-//
-//                $this->propietario_model->insertar($arr_propietario);
-//                redirect(base_url() . "login", 'refresh');
-//            }
-//        }
-//        else{
-//            var_dump(validation_errors());
-//        }
     }
     
     public function reenviarcorreo() {
@@ -339,13 +223,16 @@ class registro extends CI_Controller{
                 try {
                     $mail->SMTPDebug = 0;
                     $mail->isSMTP();
-                    $mail->Host = 'smtp.gmail.com';
+                    //$mail->Host = 'superrecarga.com.mx';
+                    $mail->Host = 'diatel.com.mx';
                     $mail->SMTPAuth = true;
-                    $mail->Username = 'norespondersuperrecargas@gmail.com';
-                    $mail->Password = 'zaznhekisdvtsgdb';
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                    $mail->Port = 587;
-                    $mail->setFrom('norespondersuperrecargas@gmail.com', 'Super Recarga');
+                    //$mail->Username = 'registro@superrecarga.com.mx';
+                    $mail->Username = 'registronoreplay@diatel.com.mx';
+                    //$mail->Password = 'nlI?Vf{ROl{}>armidas*';
+                    $mail->Password = 'Zo0M*@AkzeD;';
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                    $mail->Port = 465;
+                    $mail->setFrom('registronoreplay@diatel.com.mx', 'Super Recarga');
                     $mail->addAddress($correo);
                     $mail->isHTML(true);
                     $mail->Subject = 'SÚPERRECARGA Confirmación de Registro';
@@ -367,6 +254,10 @@ class registro extends CI_Controller{
                         <br>
                         <img src="cid:imagen-inst" height="250px" width="250px">
                         <br>
+                        <br>
+                        <label style="font-family: sans-serif; font-size: 14px">
+                            El número celular registrado es: ' . $usuario . '
+                        </label>
                         <br>
                         <label style="font-family: sans-serif; font-size: 14px">
                             Tu contraseña inicial es: ' . $password . '

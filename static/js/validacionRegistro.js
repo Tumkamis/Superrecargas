@@ -5,8 +5,6 @@
  */
 //Otro cambio
 jQuery(document).ready(function ($) {
-    //select de los municipios a partir de los estados
-    
     $('.solo-numero').keyup(function (){
         this.value = (this.value + '').replace(/[^0-9]/g, '');
     });
@@ -14,7 +12,8 @@ jQuery(document).ready(function ($) {
     $("#tipo").change(function () {
         $("#tipo option:selected").each(function () {
             institucion = $('#tipo').val();
-            $.post("https://superrecarga.com.mx/registro/buscar_institucion", {
+            //$.post("http://localhost/SuperrecargaLocal/registro/buscar_institucion", {
+            $.post("http://superrecarga.com.mx/Superrecarga/registro/buscar_institucion", {
                 tipo: institucion
             }, function (data) {
                 $("#instituciones").html(data);
@@ -23,7 +22,7 @@ jQuery(document).ready(function ($) {
     });
     
     $('#correoEnviado').click(function () {
-        var correo = document.getElementById("email").value;
+        //var correo = document.getElementById("email").value;
 //        var tel1=document.getElementById("telefono1").value;
 //        tel1.value = (this.value + '').replace(/[^0-9]/g, '');
 //        $("#telefono1").val(tel1);
@@ -224,55 +223,86 @@ jQuery(document).ready(function ($) {
     }
     
     function addcuenta() {
+        var telefono = document.getElementById("telefono1").value;
         var correo = document.getElementById("email").value;
         var idinstitucion = document.getElementById("instituciones").value;
-        var telefono = document.getElementById("telefono1").value;
         $.ajax({
-            url: "https://superrecarga.com.mx/Superrecarga/registro/registro_post",
+            //url: "http://localhost/WebService/registro.php",
+            url: "http://superrecarga.website/SuperRecargaMeta/registro/registro_post",
             type: "post",
             dataType: "json",
-            data: $("#form").serialize(),
+            data: {
+                telefono: telefono
+            },
             success: function (json) {
-                swal({
-                    title: "Registro",
-                    text: "Se le enviara un correo a: "+correo+" con su contraseña para acceder, por favor revise la bandeja de entrada o la de spam",
-                    type: "success",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    cancelButtonColor: "#687DF7",
-                    confirmButtonText: "Reenviar",
-                    cancelButtonText: "Recibido",
-                    closeOnConfirm: false,
-                    closeOnCancel: false},
-                    function (isConfirm) {
-                        if(isConfirm){
-                            //location.href = "../usuario/beneficiario/eliminar/"+elem.attr('data-id');
-                            $.ajax({
-                                url: "https://superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
-                                type: "post",
-                                dataType: "json",
-                                data: {
-                                    idinstitucion: idinstitucion,
-                                    correo: correo,
-                                    telefono: telefono
-                                },
-                                success: function (json) {
-                                    alert("Reenviado");
+                if(json!=false){
+                    //alert("Este ya existe mira "+json.correo);
+                    swal({
+                        title: "Alerta",
+                        text: "Es posible que el número que intenta ingresar ya este registrado, por favor verifique los datos",
+                        type: "warning"
+                    });
+                }
+                else{
+                    
+                  //alert("No existe, resultado esperado");
+                    $.ajax({
+                        //url: "http://localhost/WebService/registropost.php",
+                        url: "http://superrecarga.website/SuperRecargaMeta/registro/registro_post",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            telefono: telefono,
+                            correo: correo,
+                            idinstitucion: idinstitucion
+                        },
+                        success: function (json) {
+                            swal({
+                                title: "Registro",
+                                text: "Se le enviara un correo a: " + correo + " con su contraseña para acceder, por favor revise la bandeja de entrada o la de spam",
+                                type: "success",
+                                showCancelButton: true,
+                                confirmButtonColor: "#DD6B55",
+                                cancelButtonColor: "#687DF7",
+                                confirmButtonText: "Reenviar",
+                                cancelButtonText: "Recibido",
+                                closeOnConfirm: false,
+                                closeOnCancel: false},
+                            function (isConfirm) {
+                                if (isConfirm) {
+                                    //location.href = "../usuario/beneficiario/eliminar/"+elem.attr('data-id');
+                                    $.ajax({
+                                        //url: "http://localhost/SuperrecargaLocal/registro/reenviarcorreo",
+                                        url: "http://superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
+                                        type: "post",
+                                        dataType: "json",
+                                        data: {
+                                            idinstitucion: idinstitucion,
+                                            correo: correo,
+                                            telefono: telefono
+                                        },
+                                        success: function (json) {
+                                            alert("Se ha reenviado un correo a: " + correo + ", por favor revise la bandeja de entrada o la de spam");
 //                                    swal({
 //                                        title: "Reenviado",
 //                                        text: "",
 //                                        type: "success"
 //                                    });
-                                },
-                                error: function (a,b,c){
-                                    alert("No se reenvio intentelo más tarde" + c);
+                                        },
+                                        error: function (a, b, c) {
+                                            alert("No funciono " + c);
+                                        }
+                                    });
+                                }
+                                else {
+                                    //location.href = "http://localhost/SuperrecargaLocal/login";
+                                    location.href = "http://superrecarga.com.mx/Superrecarga/login";
                                 }
                             });
                         }
-                        else{
-                            location.href = "https://superrecarga.com.mx/login";
-                        }
-                });
+                    });
+                }
+                //lert("Hecho");
             },
             error: function (a,b,c){
                 //alert("No Agregado " + c);
@@ -284,4 +314,69 @@ jQuery(document).ready(function ($) {
             }
         });
     }
+    
+//    function addcuenta() {
+//        var correo = document.getElementById("email").value;
+//        var idinstitucion = document.getElementById("instituciones").value;
+//        var telefono = document.getElementById("telefono1").value;
+//        $.ajax({
+//            url: "http://localhost/SuperrecargaLocal/registro/registro_post",
+//            //url: "http://superrecarga.com.mx/Superrecarga/registro/registro_post",
+//            type: "post",
+//            dataType: "json",
+//            data: $("#form").serialize(),
+//            success: function (json) {
+//                swal({
+//                    title: "Registro",
+//                    text: "Se le enviara un correo a: "+correo+" con su contraseña para acceder, por favor revise la bandeja de entrada o la de spam",
+//                    type: "success",
+//                    showCancelButton: true,
+//                    confirmButtonColor: "#DD6B55",
+//                    cancelButtonColor: "#687DF7",
+//                    confirmButtonText: "Reenviar",
+//                    cancelButtonText: "Recibido",
+//                    closeOnConfirm: false,
+//                    closeOnCancel: false},
+//                    function (isConfirm) {
+//                        if(isConfirm){
+//                            //location.href = "../usuario/beneficiario/eliminar/"+elem.attr('data-id');
+//                            $.ajax({
+//                                url: "http://localhost/SuperrecargaLocal/registro/reenviarcorreo",
+//                                //url: "http://superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
+//                                type: "post",
+//                                dataType: "json",
+//                                data: {
+//                                    idinstitucion: idinstitucion,
+//                                    correo: correo,
+//                                    telefono: telefono
+//                                },
+//                                success: function (json) {
+//                                    alert("Se ha reenviado un correo a: "+correo+", por favor revise la bandeja de entrada o la de spam");
+////                                    swal({
+////                                        title: "Reenviado",
+////                                        text: "",
+////                                        type: "success"
+////                                    });
+//                                },
+//                                error: function (a,b,c){
+//                                    alert("No funciono " + c);
+//                                }
+//                            });
+//                        }
+//                        else{
+//                            location.href = "http://localhost/SuperrecargaLocal/login";
+//                            //location.href = "http://superrecarga.com.mx/Superrecarga/login";
+//                        }
+//                });
+//            },
+//            error: function (a,b,c){
+//                //alert("No Agregado " + c);
+//                swal({
+//                    title: "Alerta",
+//                    text: "Es posible que el número que intenta ingresar ya este registrado, por favor verifique los datos",
+//                    type: "warning"
+//                });
+//            }
+//        });
+//    }
 });

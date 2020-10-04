@@ -19,7 +19,7 @@ class login extends CI_Controller {
         $data['titulo'] = "Súper Recarga | Iniciar sesión";
 
         $data = $this->load->view('login_view', $data, FALSE);
-//        $data = $this->load->view('login_view_1', $data, FALSE);
+        //$data = $this->load->view('login_view_1', $data, FALSE);
     }
 
     public function inicio() {

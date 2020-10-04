@@ -110,6 +110,12 @@ and beneficiario.idpropietario='$idpropietario' and beneficiario.estatus=1";
         $query=$this->db->query($cmd);
         return ($query->num_rows() > 0) ? $query->result() : NULL;
     }
+    
+    public function insertar_solicitud($arr) {
+        $this->db->insert('solicitudfundaciones', $arr);
+        return $this->db->insert_id();
+        //return TRUE;
+    }
 
 }
 

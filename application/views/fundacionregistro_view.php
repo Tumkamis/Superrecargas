@@ -23,7 +23,7 @@ and open the template in the editor.
         <link rel="icon" href="<?= base_url() ?>static\images\logos\logo_aide_ico.ico" type="image/x-icon">
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
         <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
-        <script src="<?= base_url()?>static/js/validacionRegistroGET.js"></script>
+        <script src="<?= base_url()?>static/js/validacionSolicitud.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
@@ -51,45 +51,18 @@ and open the template in the editor.
     <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
         <!-- color-line START -->
         <!--<div class="color-line"></div>-->
-        <div class="col-lg-3">
-            <img src="<?= base_url()?>static/instituciones/<?= $fundacion->img?>.jpg" width="200" height="150">
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group " style="text-align:center;">
-                <label style="color: white;"><h4>BIENVENIDO</h4></label>
-                <br>
-                <label style="color: white;"><h4>A PARTIR DE HOY VAS A AHORRAR Y APOYAR CON TODAS TUS RECARGAS CELULARES</h4></label>
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group" style="text-align:left; font-size: 6rem;">
+                    <label style="color: white;">FUNDACIONES</label>
+                </div>
+            </div>
+            <div class="col-lg-3">
             </div>
         </div>
-        <div class="col-lg-3">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="<?= base_url()?>static/Logotipo-Super-Recarga-R.png" width="200" height="150">
-        </div>
-        <!-- login-container START -->
-<!--        <div align="left">
-            <img src="<?= base_url()?>static/instituciones/afavordelniño.jpg" width="200" height="150" class="ribbon">
-        </div>
-        <div align="right">
-            <img src="<?= base_url()?>static/instituciones/afavordelniño.jpg" width="200" height="150" class="ribbon">
-        </div>-->
-<!--        <img src="<?= base_url()?>static/instituciones/afavordelniño.jpg" width="200" height="150" class="ribbon">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="<?= base_url()?>static/instituciones/afavordelniño.jpg" width="200" height="150" class="ribbon">-->
         <div class="register-container">
             <!-- row START -->
             <div class="row">
@@ -110,25 +83,25 @@ and open the template in the editor.
                     <div class="hpanel">
                         <div class="panel-body" style="background-color: #F2F2F2;">
                             <!-- form start -->
-                            <form role="form" id="form" action="<?= base_url() ?>registro/registro_post" method="post">
+                            <form role="form" id="form" action="<?= base_url() ?>" method="post">
                                 <!-- form row -->
                                 <div class="row">
-                                    <div class="form-group col-lg-12 ">
-                                        <label><h4>Registro</h4></label>
+                                    <div class="form-group col-lg-12 " style="text-align:center;">
+                                        <label style="color: black;"><h1>Registro</h1></label>
                                         <br>
                                         <label><h4>*Campos obligatorios</h4></label>
                                     </div>
                                     <div class="form-group ">
-                                        <div class="col-lg-6"> 
-                                            <label style="color: blue;">Número celular (10 dígitos)*:</label>
-                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido">
+                                        <div class="col-lg-12"> 
+                                            <label style="color: blue;">Nombre de la fundación*:</label>
+                                            <input type="text" value="" id="nomfudacion" class="form-control" name="nomfudacion"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-6">
-                                            <label style="color: blue;">Repetir número celular*:</label>
-                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido">
+                                    <div class="form-group ">
+                                        <div class="col-lg-12"> 
+                                            <label style="color: blue;">Nombre y apelllido del responsable*:</label>
+                                            <input type="text" value="" id="nomresponsable" class="form-control" name="nomresponsable"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -140,52 +113,17 @@ and open the template in the editor.
 
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <label style="color: blue;">Selecciona tu banco*:</label>
-                                            <select class="form-control js-source-states" style="width: 100%" name="banco" id="banco">
-                                                <option>---Seleccione---</option>
-                                                <option value="ABC CAPITAL">ABC CAPITAL</option>
-                                                <option value="ACTINVER">ACTINVER</option>
-                                                <option value="AFIRME">AFIRME</option>
-                                                <option value="AUTOFIN">AUTOFIN</option>
-                                                <option value="AZTECA">AZTECA</option>
-                                                <option value="BANAMEX">BANAMEX</option>
-                                                <option value="BANCOPPEL">BANCOPPEL</option>
-                                                <option value="BAJIO">BAJIO</option>
-                                                <option value="BANJERCITO">BANJERCITO</option>
-                                                <option value="BANORTE/IXE">BANORTE/IXE</option>
-                                                <option value="BANREGIO">BANREGIO</option>
-                                                <option value="BANSEFI">BANSEFI</option>
-                                                <option value="BANSI">BANSI</option>
-                                                <option value="BBASE">BBASE</option>
-                                                <option value="BBVA">BBVA</option>
-                                                <option value="BMONEX">BMONEX</option>
-                                                <option value="CIBANCO">CIBANCO</option>
-                                                <option value="COMPARTAMOS">COMPARTAMOS</option>
-                                                <option value="CONSUBANCO">CONSUBANCO</option>
-                                                <option value="DONDE">DONDE</option>
-                                                <option value="HSBC">HSBC</option>
-                                                <option value="INBURSA">INBURSA</option>
-                                                <option value="INMOBILIARIO">INMOBILIARIO</option>
-                                                <option value="INTERCAM">INTERCAM</option>
-                                                <option value="INVEX">INVEX</option>
-                                                <option value="MIFEL">MIFEL</option>
-                                                <option value="MULTIVA BANCO">MULTIVA BANCO</option>
-                                                <option value="PAGATODO">PAGATODO</option>
-                                                <option value="SABADELL">SABADELL</option>
-                                                <option value="SANTANDER">SANTANDER</option>
-                                                <option value="SCOTIABANK">SCOTIABANK</option>
-                                                <option value="VEPORMAS">VEPORMAS</option>
-                                            </select>
+                                    <div class="form-group ">
+                                        <div class="col-lg-6"> 
+                                            <label style="color: blue;">Teléfono celular*:</label>
+                                            <input type="tel" value="" id="telefonocel" class="form-control solo-numero" name="telefonocel"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-lg-12">
-                                            <label style="color: blue;">Institución a apoyar*:</label>
-                                            <input type="text" value="<?= $fundacion->nombre?>" id="nom_institucion" class="form-control" name="nom_institucion" disabled="">
-                                            <input type="hidden" value="<?= $fundacion->idinstitucion?>" id="instituciones" class="form-control" name="instituciones">
+                                    <div class="form-group ">
+                                        <div class="col-lg-6"> 
+                                            <label style="color: blue;">Teléfono oficina*:</label>
+                                            <input type="tel" value="" id="telefonoofc" class="form-control solo-numero" name="telefonoofc"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -197,13 +135,12 @@ and open the template in the editor.
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>login" >Cancelar</a>
                                         <button
                                             class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
                                             type="button">Enviar</button>
                                     </div>
                                 </div>
-                            </form> 
+                            </form>
                         </div>
                     </div>
                     <!-- hpanel END -->
@@ -218,20 +155,14 @@ and open the template in the editor.
                     <br /> <small>Desarrollado por <a href="http://cidtai.uteq.edu.mx">CIDTAI - UTEQ</a></small>
                 </div>
             </div>-->
-        </div>
-            <div class="row">
-                <div class="form-group " style="text-align:center;">
-                    <div class="col-lg-12">
-                        <label style="color: white;"><h3>Si eres un usuario ya registrado ingresa aquí</h3></label>
-                    </div>
-                </div>
-                <div class="form-group " style="text-align:center;">
-                    <div class="col-lg-12">
-                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>login" >Iniciar sesión</a>
-                    </div>
-                </div>
             </div>
-            <br>
+<!--            <div class="row">
+                <div class="form-group " style="text-align:center;">
+                    <div class="col-lg-12">
+                        <label style="color: white;"><h3>Nos comunicamos contigo en breve...</h3></label>
+                    </div>
+                </div>
+            </div>-->
         </div>
 
         <!-- login-container END -->
@@ -292,7 +223,6 @@ and open the template in the editor.
                 //$(".js-source-states").select2();
                 //$(".js-source-states-2").select2();
             });
-            
         </script>
 
         <!--validacion de contraseña -->
