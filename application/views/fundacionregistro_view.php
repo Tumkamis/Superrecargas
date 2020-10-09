@@ -52,7 +52,14 @@ and open the template in the editor.
         <!-- color-line START -->
         <!--<div class="color-line"></div>-->
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">
+                    <label style="color: white; font-size: 6rem;">FUNDACIONES</label>
+                </div>
+<!--                <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">-->
+            </div>
+<!--            <div class="col-lg-3">
                 <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">
             </div>
             <div class="col-lg-6">
@@ -61,7 +68,7 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="col-lg-3">
-            </div>
+            </div>-->
         </div>
         <div class="register-container">
             <!-- row START -->
