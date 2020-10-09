@@ -23,8 +23,8 @@
 |
 */
 //$config['base_url'] = 'http://localhost/Superrecarga/';
-$config['base_url'] = 'https://www.superrecarga.com.mx/';
-//$config['base_url'] = 'https://3.132.188.225/';
+$config['base_url'] = 'https://superrecarga.com.mx/Superrecarga';
+//$config['base_url'] = 'https://3.132.188.225/Superrecarga';
 
 /*
 |--------------------------------------------------------------------------
