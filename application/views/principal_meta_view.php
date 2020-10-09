@@ -51,7 +51,7 @@ and open the template in the editor.
             <div class="row" style="background-color: white;">
                 <!-- col-md-12 START -->
                 <div class="col-md-12" style="text-align: center">
-                    <img src="<?= base_url()?>/static/cabeza.jpg" width="350">
+                    <img src="<?= base_url()?>static/cabeza.jpg" width="350">
                     <br>
                     <br>
                     <a href="<?= base_url()?>login" class="btn btn-success" style="background-color: #5FB404">Selecciona tus números</a>
@@ -59,7 +59,7 @@ and open the template in the editor.
 <!--                    <button
                         class="btn btn-success" style="background-color: #A2C62C" 
                         type="button">Selecciona tus números</button>-->
-                    <img src="<?= base_url()?>/static/pie.jpeg" width="350">
+                    <img src="<?= base_url()?>static/pie.jpeg" width="350">
                     
                     <input type="hidden" value="" id="idpropietario" name="idpropietario">
                     <!-- text-center m-b-mb START -->
