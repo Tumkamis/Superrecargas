@@ -107,20 +107,20 @@ class registro extends CI_Controller{
                         //Server settings
                         $mail->SMTPDebug = 0;                      // Enable verbose debug output
                         $mail->isSMTP();                                            // Send using SMTP
-                        //$mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
-                        $mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
+                        $mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
+                        //$mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
                         //$mail->Host = 'superrecarga.com.mx';                       // Set the SMTP server to send through
                         $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-                        //$mail->Username = 'norespondersuperrecargas@gmail.com';                     // SMTP username
-                        $mail->Username = 'noreplysuperrecarga@diatel.com.mx';                     // SMTP username
+                        $mail->Username = 'apacan99@gmail.com';                     // SMTP username
+                        //$mail->Username = 'noreplysuperrecarga@diatel.com.mx';                     // SMTP username
                         //$mail->Username = 'registro@superrecarga.com.mx';                     // SMTP username
-                        //$mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
+                        $mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
                         //$mail->Password = '/4Rz1ORv6xg?';                               // SMTP password
-                        $mail->Password = 'li67812*/qQWUI';                               // SMTP password
+                        //$mail->Password = 'li67812*/qQWUI';                               // SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                         $mail->Port = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                         //Recipients
-                        $mail->setFrom('noreplysuperrecarga@diatel.com.mx', 'Super Recarga');
+                        $mail->setFrom('apacan99@gmail.com', 'Super Recarga');
                         $mail->addAddress($correo);
                         //$mail->addAddress('noresponda@diatel.com.mx');
                         //Cambiar a correo de rh de la empresa
