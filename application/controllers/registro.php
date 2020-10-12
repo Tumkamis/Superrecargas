@@ -224,7 +224,7 @@ class registro extends CI_Controller{
                     $mail->SMTPDebug = 0;
                     $mail->isSMTP();
                     //$mail->Host = 'superrecarga.com.mx';
-                    $mail->Host = 'diatel.com.mx';
+                    $mail->Host = 'mail.diatel.com.mx';
                     $mail->SMTPAuth = true;
                     //$mail->Username = 'registro@superrecarga.com.mx';
                     $mail->Username = 'registronoreplay@diatel.com.mx';
