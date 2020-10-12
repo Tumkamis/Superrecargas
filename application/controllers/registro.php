@@ -107,8 +107,8 @@ class registro extends CI_Controller{
                         //Server settings
                         $mail->SMTPDebug = 0;                      // Enable verbose debug output
                         $mail->isSMTP();                                            // Send using SMTP
-                        $mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
-                        //$mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
+                        //$mail->Host = 'smtp.gmail.com';                       // Set the SMTP server to send through
+                        $mail->Host = 'mail.diatel.com.mx';                       // Set the SMTP server to send through
                         //$mail->Host = 'superrecarga.com.mx';                       // Set the SMTP server to send through
                         $mail->SMTPAuth = true;                                   // Enable SMTP authentication
                         //$mail->Username = 'apacan99@gmail.com';                     // SMTP username
