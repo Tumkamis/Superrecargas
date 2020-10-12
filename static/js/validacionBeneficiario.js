@@ -266,7 +266,7 @@ jQuery(document).ready(function ($) {
     function addbeneficiario() {
         $.ajax({
             //url: "http://localhost/SuperrecargaLocal/usuario/registro_beneficiario/insertar_beneficiario",
-            url: "http://superrecarga.com.mx/Superrecarga/usuario/registro_beneficiario/insertar_beneficiario",
+            url: "https://www.superrecarga.com.mx/Superrecarga/usuario/registro_beneficiario/insertar_beneficiario",
             type: "post",
             dataType: "json",
             data: $("#form").serialize(),
@@ -278,7 +278,7 @@ jQuery(document).ready(function ($) {
                 },
                 function () {
                     //location.href = "http://localhost/SuperrecargaLocal/usuario/beneficiario";
-                    location.href = "http://superrecarga.com.mx/Superrecarga/usuario/beneficiario";
+                    location.href = "https://www.superrecarga.com.mx/Superrecarga/usuario/beneficiario";
                 });
             },
             error: function (a,b,c){

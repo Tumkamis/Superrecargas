@@ -13,7 +13,7 @@ jQuery(document).ready(function ($) {
         $("#tipo option:selected").each(function () {
             institucion = $('#tipo').val();
             //$.post("http://localhost/SuperrecargaLocal/registro/buscar_institucion", {
-            $.post("http://superrecarga.com.mx/Superrecarga/registro/buscar_institucion", {
+            $.post("https://www.superrecarga.com.mx/Superrecarga/registro/buscar_institucion", {
                 tipo: institucion
             }, function (data) {
                 $("#instituciones").html(data);
@@ -228,7 +228,7 @@ jQuery(document).ready(function ($) {
         var idinstitucion = document.getElementById("instituciones").value;
         $.ajax({
             //url: "http://localhost/WebService/registro.php",
-            url: "http://superrecarga.website/SuperRecargaMeta/registro/registro_post",
+            url: "https://www.superrecarga.website/SuperRecargaMeta/registro/registro_post",
             type: "post",
             dataType: "json",
             data: {

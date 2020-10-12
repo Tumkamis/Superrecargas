@@ -194,8 +194,8 @@ jQuery(document).ready(function ($) {
         var idinstitucion = document.getElementById("instituciones").value;
         var telefono = document.getElementById("telefono1").value;
         $.ajax({
-            url: "http://localhost/SuperrecargaLocal/registro/registro_post",
-            //url: "http://superrecarga.com.mx/Superrecarga/registro/registro_post",
+            //url: "http://localhost/SuperrecargaLocal/registro/registro_post",
+            url: "https://www.superrecarga.com.mx/Superrecarga/registro/registro_post",
             type: "post",
             dataType: "json",
             data: $("#form").serialize(),
@@ -215,8 +215,8 @@ jQuery(document).ready(function ($) {
                         if(isConfirm){
                             //location.href = "../usuario/beneficiario/eliminar/"+elem.attr('data-id');
                             $.ajax({
-                                url: "http://localhost/SuperrecargaLocal/registro/reenviarcorreo",
-                                //url: "http://superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
+                                //url: "http://localhost/SuperrecargaLocal/registro/reenviarcorreo",
+                                url: "https://www.superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
                                 type: "post",
                                 dataType: "json",
                                 data: {
@@ -238,8 +238,8 @@ jQuery(document).ready(function ($) {
                             });
                         }
                         else{
-                            location.href = "http://localhost/SuperrecargaLocal/login";
-                            //location.href = "http://superrecarga.com.mx/Superrecarga/login";
+                            //location.href = "http://localhost/SuperrecargaLocal/login";
+                            location.href = "https://www.superrecarga.com.mx/Superrecarga/login";
                         }
                 });
             },

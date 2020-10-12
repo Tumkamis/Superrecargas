@@ -205,7 +205,7 @@ jQuery(document).ready(function ($) {
     function addcuenta() {
         $.ajax({
             //url: "http://localhost/SuperrecargaLocal/fundaciones/registro_post",
-            url: "http://superrecarga.com.mx/Superrecarga/fundaciones/registro_post",
+            url: "https://www.superrecarga.com.mx/Superrecarga/fundaciones/registro_post",
             type: "post",
             dataType: "json",
             data: $("#form").serialize(),
@@ -217,7 +217,7 @@ jQuery(document).ready(function ($) {
                 },
                 function () {
                     //location.href = "http://localhost/SuperrecargaLocal/fundaciones/registro";
-                    location.href = "http://superrecarga.com.mx/Superrecarga/fundaciones/registro";
+                    location.href = "https://www.superrecarga.com.mx/Superrecarga/fundaciones/registro";
                 });
 //                document.getElementById("nomfudacion").value = "";
 //                document.getElementById("nomresponsable").value = "";
