@@ -116,7 +116,7 @@ class registro extends CI_Controller{
                         //$mail->Username = 'registro@superrecarga.com.mx';                     // SMTP username
                         //$mail->Password = 'zaznhekisdvtsgdb';                               // SMTP password
                         //$mail->Password = '/4Rz1ORv6xg?';                               // SMTP password
-                        $mail->Password = 'Zo0M*@AkzeD;';                               // SMTP password
+                        $mail->Password = 'sEvX8NCv89nAQRO*';                               // SMTP password
                         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                         $mail->Port = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                         //Recipients
