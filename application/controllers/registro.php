@@ -229,7 +229,7 @@ class registro extends CI_Controller{
                     //$mail->Username = 'registro@superrecarga.com.mx';
                     $mail->Username = 'registronoreplay@diatel.com.mx';
                     //$mail->Password = 'nlI?Vf{ROl{}>armidas*';
-                    $mail->Password = 'Zo0M*@AkzeD;';
+                    $mail->Password = 'sEvX8NCv89nAQRO*';
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                     $mail->Port = 465;
                     $mail->setFrom('registronoreplay@diatel.com.mx', 'Super Recarga');
