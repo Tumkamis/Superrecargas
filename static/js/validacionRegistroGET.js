@@ -244,12 +244,12 @@ jQuery(document).ready(function ($) {
                 });
             },
             error: function (a,b,c){
-                alert("No Agregado " + c);
-//                swal({
-//                    title: "Alerta",
-//                    text: "Error"+c,
-//                    type: "warning"
-//                });
+                //alert("No Agregado " + c);
+                swal({
+                    title: "Alerta",
+                    text: "Es posible que el número que intenta ingresar ya este registrado, por favor verifique los datos",
+                    type: "warning"
+                });
             }
         });
     }
