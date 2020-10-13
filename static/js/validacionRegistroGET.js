@@ -245,9 +245,10 @@ jQuery(document).ready(function ($) {
             },
             error: function (a,b,c){
                 //alert("No Agregado " + c);
+                var todo =c;
                 swal({
                     title: "Alerta",
-                    text: "Es posible que el número que intenta ingresar ya este registrado, por favor verifique los datos",
+                    text: "Error"+todo,
                     type: "warning"
                 });
             }
