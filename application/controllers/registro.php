@@ -58,6 +58,11 @@ class registro extends CI_Controller{
     }
     
     public function registro_post() {
+        header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
         
         if ($this->input->is_ajax_request()) {
             $this->form_validation->set_rules('telefono1', 'telefono1', 'trim|required|xss_clean');
