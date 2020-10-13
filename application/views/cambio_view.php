@@ -24,7 +24,7 @@ and open the template in the editor.
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
         <script src="<?= base_url()?>static/vendor/sweetalert/lib/sweet-alert.min.js"></script>
         <!--<script src="<?= base_url()?>Superrecarga/static/js/validacionRegistro.js"></script>-->
-        <script src="<?= base_url()?>Superrecarga/static/js/validacionPassword.js"></script>
+        <script src="<?= base_url()?>static/js/validacionPassword.js"></script>
         <!-- Vendor styles -->
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/fontawesome/css/font-awesome.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/metisMenu/dist/metisMenu.css" />
