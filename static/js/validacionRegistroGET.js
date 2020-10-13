@@ -5,6 +5,9 @@
  */
 //Otro cambio
 jQuery(document).ready(function ($) {
+    header("Access-Control-Allow-Origin" ,"https://www.superrecarga.com.mx");
+    header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+    
     $('.solo-numero').keyup(function (){
         this.value = (this.value + '').replace(/[^0-9]/g, '');
     });
