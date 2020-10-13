@@ -12,8 +12,7 @@
  */
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-header("Access-Control-Allow-Origin" ,"https://www.superrecarga.com.mx");
-header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
