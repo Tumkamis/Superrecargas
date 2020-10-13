@@ -245,10 +245,9 @@ jQuery(document).ready(function ($) {
             },
             error: function (a,b,c){
                 //alert("No Agregado " + c);
-                var todo =c;
                 swal({
                     title: "Alerta",
-                    text: "Error"+todo,
+                    text: "Error"+c,
                     type: "warning"
                 });
             }
