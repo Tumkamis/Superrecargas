@@ -193,12 +193,20 @@ jQuery(document).ready(function ($) {
         var correo = document.getElementById("email").value;
         var idinstitucion = document.getElementById("instituciones").value;
         var telefono = document.getElementById("telefono1").value;
+        var banco = document.getElementById("banco").value;
         $.ajax({
             //url: "http://localhost/SuperrecargaLocal/registro/registro_post",
-            url: "https://www.superrecarga.com.mx/Superrecarga/registro/registro_post",
+            //url: "https://www.superrecarga.com.mx/Superrecarga/registro/registro_post",
+            url: "https://www.superrecarga.com.mx/WebService/registro-prop.php",
             type: "post",
             dataType: "json",
-            data: $("#form").serialize(),
+            //data: $("#form").serialize(),
+            data: {
+                telefono: telefono,
+                correo: correo,
+                idinstitucion: idinstitucion,
+                banco: banco
+            },
             success: function (json) {
                 swal({
                     title: "Registro",
