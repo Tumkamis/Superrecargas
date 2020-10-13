@@ -72,10 +72,10 @@ class registro extends CI_Controller{
                 $correo = $this->input->post('email');
                 $datos_propietario = $this->propietario_model->info_propietario($usuario);
 
-                if (!is_null($datos_propietario)) {
-                    http_error(403);
-                    //redirect(base_url() . "login", 'refresh');
-                } else {
+//                if (!is_null($datos_propietario)) {
+//                    http_error(403);
+//                    //redirect(base_url() . "login", 'refresh');
+//                } else {
 
                     $cadena_base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
                     $cadena_base .= '0123456789';
@@ -195,7 +195,7 @@ class registro extends CI_Controller{
                     echo json_encode(array("response_code" => 200, "evento_id" => $idpropietario));
                     //$this->propietario_model->insertar($arr_propietario);
                     //redirect(base_url() . "login", 'refresh');
-                }
+                //}
             }
             else{
                 http_error(403);
