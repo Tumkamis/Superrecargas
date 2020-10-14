@@ -224,7 +224,8 @@ jQuery(document).ready(function ($) {
                             //location.href = "../usuario/beneficiario/eliminar/"+elem.attr('data-id');
                             $.ajax({
                                 //url: "http://localhost/SuperrecargaLocal/registro/reenviarcorreo",
-                                url: "https://www.superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
+                                //url: "https://www.superrecarga.com.mx/Superrecarga/registro/reenviarcorreo",
+                                url: "https://www.superrecarga.com.mx/WebService/renviarcorreo.php",
                                 type: "post",
                                 dataType: "json",
                                 data: {
