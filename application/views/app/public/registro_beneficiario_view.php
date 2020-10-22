@@ -49,9 +49,8 @@ and open the template in the editor.
             }
         </style>
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
         <!-- color-line START -->
-        <div class="color-line"></div>
 
         <!-- login-container START -->
         <div class="register-container">
@@ -72,7 +71,7 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body" style="background-color: #F2F2F2;">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <!-- form start -->
                             <form role="form" id="form" action="<?= base_url() ?>usuario/registro_beneficiario/insertar_beneficiario" method="post">
                                 <!-- form row -->
@@ -84,7 +83,7 @@ and open the template in the editor.
                                     <div class="form-group col-lg-6" style="text-align:right;">
                                         <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
                                     </div>-->
-                                    <img src="<?= base_url()?>static/instituciones/<?= $imagen?>.jpg" width="200" height="150" class="ribbon">
+                                    <img src="<?= base_url()?>static/instituciones/<?= $imagen?>.jpg" width="200" height="150" class="ribbon" style="border-radius: 15px;">
                                     <br>
                                     <br>
                                     <br>
@@ -92,10 +91,11 @@ and open the template in the editor.
                                     <br>
                                     <br>
                                     <br>
-                                    <div class="form-group col-lg-12 ">
-                                        <label><h4>Agregar beneficiario</h4></label>
-                                        <br>
-                                        <label><h4>*Campos obligatorios</h4></label>
+                                    <div class="form-group col-lg-12" style="text-align: center; color: #57167d;">
+                                        <label><h3><b>Agregar beneficiario</b></h3></label>
+                                    </div>
+                                    <div class="form-group col-lg-12" style="text-align: left; color: #57167d;">
+                                        <label><h5>*Campos obligatorios</h5></label>
                                     </div>
 <!--                                    <div class="form-group col-lg-12" style="text-align:right;">
                                         <img src="<?= base_url()?>/static/fundacion.jpeg" width="200" height="150">
@@ -105,31 +105,31 @@ and open the template in the editor.
 <br>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Nombre corto*:</label>
-                                            <input type="text" value="" id="nombre" class="form-control" name="nombre"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Nombre corto*:</label>
+                                            <input style="background-color: #e5d8ed;" type="text" value="" id="nombre" class="form-control" name="nombre"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
 
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
-                                            <label style="color: blue;">Número celular (10 dígitos)*:</label>
-                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido" maxlength="10">
+                                            <label style="color: #57167d;">Número celular (10 dígitos)*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <label style="color: blue;">Repetir número celular*:</label>
-                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido" maxlength="10">
+                                            <label style="color: #57167d;">Repetir número celular*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <label style="color: blue;">Operador*:</label>
-                                            <select name="idoperador" id="idoperador"  class="form-control m-b">
+                                            <label style="color: #57167d;">Operador*:</label>
+                                            <select style="background-color: #e5d8ed;" name="idoperador" id="idoperador"  class="form-control m-b">
                                                 <option>---Seleccione---</option>
                                                 <?php
                                                     if (!is_null($operadores)) :
@@ -146,8 +146,8 @@ and open the template in the editor.
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <label style="color: blue;">Paquete*:</label>
-                                            <select name="idpaquete" id="idpaquete"  class="form-control m-b">
+                                            <label style="color: #57167d;">Paquete*:</label>
+                                            <select style="background-color: #e5d8ed;" name="idpaquete" id="idpaquete"  class="form-control m-b">
                                                 <option></option>
                                             </select>
                                             <span class="help-block"></span>
@@ -166,10 +166,12 @@ and open the template in the editor.
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>usuario/beneficiario" >Cancelar</a>
+                                        <a href="<?= base_url()?>usuario/beneficiario"><img src="<?= base_url()?>static/pleca2Recurso 8.png"></a>
+                                        <a id="correoEnviado" name="correoEnviado"><img src="<?= base_url()?>static/pleca2Recurso 12.png"></a>
+<!--                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>usuario/beneficiario" >Cancelar</a>
                                         <button
                                             class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="button">Guardar</button>
+                                            type="button">Guardar</button>-->
                                     </div>
                                 </div>
                             </form>

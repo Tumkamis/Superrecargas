@@ -48,15 +48,19 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
         <!-- color-line START -->
         <!--<div class="color-line"></div>-->
+        <br>
+        <br>
+        <br>
         <div class="col-lg-3">
-            <img src="<?= base_url()?>static/instituciones/<?= $fundacion->img?>.jpg" width="200" height="150">
+            <img src="<?= base_url()?>static/instituciones/<?= $fundacion->img?>.jpg" width="200" height="70" style="border-radius: 75px;">
+            <!--<img src="https://www.superrecarga.com.mx/WebService/static/instituciones/<?= $fundacion->img?>.jpg" width="200" height="150">-->
         </div>
         <div class="col-lg-6">
             <div class="form-group " style="text-align:center;">
-                <label style="color: white;"><h4>BIENVENIDO</h4></label>
+                <label style="color: white; font-family: Arial Bold;"><h2>¡BIENVENIDO!</h2></label>
                 <br>
                 <label style="color: white;"><h4>A PARTIR DE HOY VAS A AHORRAR Y APOYAR CON TODAS TUS RECARGAS CELULARES</h4></label>
             </div>
@@ -64,7 +68,7 @@ and open the template in the editor.
         <div class="col-lg-3">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <img src="<?= base_url()?>static/Logotipo-Super-Recarga-R.png" width="200" height="150">
+            <img src="<?= base_url()?>static/pleca2Recurso 2.png" width="120" height="140">
         </div>
         <!-- login-container START -->
 <!--        <div align="left">
@@ -108,42 +112,43 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body" style="background-color: #F2F2F2;">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <!-- form start -->
                             <form role="form" id="form" action="<?= base_url() ?>registro/registro_post" method="post">
                                 <!-- form row -->
                                 <div class="row">
-                                    <div class="form-group col-lg-12 ">
-                                        <label><h4>Registro</h4></label>
-                                        <br>
-                                        <label><h4>*Campos obligatorios</h4></label>
+                                    <div class="form-group col-lg-12" style="text-align:center; color: #57167d;">
+                                        <label><h3><b>Registro</b></h3></label>
+                                    </div>
+                                    <div class="form-group col-lg-12" style="color: #57167d;">
+                                        <label><h5>*Campos obligatorios</h5></label>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
-                                            <label style="color: blue;">Número celular (10 dígitos)*:</label>
-                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Número celular (10 dígitos)*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <label style="color: blue;">Repetir número celular*:</label>
-                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Repetir número celular*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Email*:</label>
-                                            <input type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Email*:</label>
+                                            <input style="background-color: #e5d8ed;" type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Selecciona tu banco*:</label>
-                                            <select class="form-control js-source-states" style="width: 100%" name="banco" id="banco">
+                                            <label style="color: #57167d;">Selecciona tu banco*:</label>
+                                            <select class="form-control js-source-states" style="width: 100%;" name="banco" id="banco">
                                                 <option>---Seleccione---</option>
                                                 <option value="ABC CAPITAL">ABC CAPITAL</option>
                                                 <option value="ACTINVER">ACTINVER</option>
@@ -183,7 +188,7 @@ and open the template in the editor.
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Institución a apoyar*:</label>
+                                            <label style="color: #57167d;">Institución a apoyar*:</label>
                                             <input type="text" value="<?= $fundacion->nombre?>" id="nom_institucion" class="form-control" name="nom_institucion" disabled="">
                                             <input type="hidden" value="<?= $fundacion->idinstitucion?>" id="instituciones" class="form-control" name="instituciones">
                                             <span class="help-block"></span>
@@ -197,10 +202,13 @@ and open the template in the editor.
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>login" >Cancelar</a>
+                                        <a href="<?= base_url()?>login"><img src="<?= base_url()?>static/pleca2Recurso 8.png"></a>
+                                        <a id="correoEnviado" name="correoEnviado"><img src="<?= base_url()?>static/pleca2Recurso 9.png"></a>
+                                        
+<!--                                        <a class="btn btn-default" style="border-color: #e37609; color: white; background-color: #e37609;" href="<?= base_url()?>login" >Cancelar</a>
                                         <button
-                                            class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="button">Enviar</button>
+                                            class="btn btn-primary" style="border-color: #57167d; color: white; background-color: #57167d;" id="correoEnviado" name="correoEnviado" 
+                                            type="button">Enviar</button>-->
                                     </div>
                                 </div>
                             </form> 
@@ -227,7 +235,8 @@ and open the template in the editor.
                 </div>
                 <div class="form-group " style="text-align:center;">
                     <div class="col-lg-12">
-                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>login" >Iniciar sesión</a>
+                        <!--<a class="btn btn-default" style="border-color: #e37609; color: white; background-color: #e37609;" href="<?= base_url()?>login" >Iniciar sesión</a>-->
+                        <a href="<?= base_url()?>login"><img src="<?= base_url()?>static/pleca2Recurso 10.png"></a>
                     </div>
                 </div>
             </div>
@@ -292,7 +301,6 @@ and open the template in the editor.
                 //$(".js-source-states").select2();
                 //$(".js-source-states-2").select2();
             });
-            
         </script>
 
         <!--validacion de contraseña -->

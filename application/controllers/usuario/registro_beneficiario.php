@@ -51,7 +51,7 @@ class registro_beneficiario extends CI_Controller{
         /*
          * parameto que se manda a la  vista para mostrar el titulo
          */
-        $data['titulo'] = "Simposio | Registro de nuevo beneficiario";
+        $data['titulo'] = "Súper Recarga | Registro de nuevo beneficiario";
         $data['operadores'] = $this->operador_model->consultar_operadores();
         /**
          * Cargamos la vista completa de la seccion correspondiente

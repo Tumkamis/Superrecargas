@@ -30,10 +30,9 @@ and open the template in the editor.
         <script src="<?= base_url()?>static/js/jquery-3.3.1.min.js"></script>
         <script src="<?= base_url()?>static/js/bootstrap.min.js"></script>
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
 
         <!-- color-line START -->
-        <div class="color-line"></div>
         <ul class="nav navbar-nav">
 <!--            <li><a href="<?= base_url()?>inicio">INICIO</a></li>-->
         </ul>
@@ -49,7 +48,8 @@ and open the template in the editor.
                         <small>Inicia sesion</small>
                     </div>-->
                     <div class="text-center m-b-md">
-                        <img src="<?= base_url()?>static/Logotipo-Super-Recarga-R.png" alt="" class="img-responsive" style="display: block; margin: auto;" />
+                        <!--<img src="<?= base_url()?>static/Logotipo-Super-Recarga-R.png" alt="" class="img-responsive" style="display: block; margin: auto;" />-->
+                        <img src="<?= base_url()?>static/pleca2Recurso 2.png" alt="" class="img-responsive" style="display: block; margin: auto;" />
                         <h3 style="color: white;"><?= $titulo ?></h3>
                         <!--<small></small>-->
                     </div>
@@ -60,16 +60,16 @@ and open the template in the editor.
                         <div class="panel-body" style="background-color: #F2F2F2;">
                             <!-- form START -->
                             <form action="<?= base_url() ?>auth" method="post" id="loginForm">
-                                <div class="form-group">
+                                <div class="form-group" style="color: #57167d;">
                                     <label><h5>*Campos obligatorios</h5></label>
                                     <br>
                                     <br>
-                                    <label class="control-label" for="username" style="color: blue;">Número celular (10 dígitos)*:</label>
-                                    <input type="text" placeholder="*Campo obligatorio" title="Por favor ingresa tu número celular" required="" value="" name="username" id="username" class="form-control" autofocus maxlength="10">
+                                    <label class="control-label" for="username" style="color: #57167d;">Número celular (10 dígitos)*:</label>
+                                    <input style="background-color: #e5d8ed;" type="text" placeholder="*Campo obligatorio" title="Por favor ingresa tu número celular" required="" value="" name="username" id="username" class="form-control" autofocus maxlength="10">
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label" for="password" style="color: blue;">Contraseña:</label>
-                                    <input type="password" title="Por favor ingresa tu contraseña" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                                    <label class="control-label" for="password" style="color: #57167d;">Contraseña:</label>
+                                    <input style="background-color: #e5d8ed;" type="password" title="Por favor ingresa tu contraseña" placeholder="******" required="" value="" name="password" id="password" class="form-control">
                                     <span class="help-block small"></span>
                                     <?php
                                     if ($this->session->flashdata('usuario_incorrecto')) {
@@ -85,7 +85,7 @@ and open the template in the editor.
                                 </div>
 
                                 
-                                <button class="btn btn-primary btn-block" type="submit">
+                                <button class="btn btn-primary btn-block" style="border-color: #e37609; color: white; background-color: #e37609;" type="submit">
                                     <i class="fa fa-sign-in"></i> Iniciar sesión
                                 </button>
                                 <!--<a class="text-primary text-right btn-block loader-link" href="<?= base_url() ?>registro" style="margin-top: 25px;">¿No tiene una cuenta? Por favor regístrese </a>-->

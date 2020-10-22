@@ -48,27 +48,21 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
         <!-- color-line START -->
         <!--<div class="color-line"></div>-->
+        <br>
+        <br>
         <div class="row">
             <div class="col-lg-12">
-                <div class="form-group">
+<!--                <div class="form-group">
                     <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">
                     <label style="color: white; font-size: 6rem;">FUNDACIONES</label>
-                </div>
-<!--                <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">-->
-            </div>
-<!--            <div class="col-lg-3">
-                <img src="<?= base_url() ?>static/Logotipo-Super-Recarga-R.png" width="150" height="170">
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group" style="text-align:left; font-size: 6rem;">
-                    <label style="color: white;">FUNDACIONES</label>
+                </div>-->
+                <div class="form-group" style="text-align:center;">
+                    <img src="<?= base_url() ?>static/pleca2Recurso 1.png">
                 </div>
             </div>
-            <div class="col-lg-3">
-            </div>-->
         </div>
         <div class="register-container">
             <!-- row START -->
@@ -88,49 +82,50 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body" style="background-color: #F2F2F2;">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <!-- form start -->
                             <form role="form" id="form" action="<?= base_url() ?>" method="post">
                                 <!-- form row -->
                                 <div class="row">
-                                    <div class="form-group col-lg-12 " style="text-align:center;">
-                                        <label style="color: black;"><h1>Registro</h1></label>
-                                        <br>
-                                        <label><h4>*Campos obligatorios</h4></label>
+                                    <div class="form-group col-lg-12 " style="text-align:center; color: #57167d;">
+                                        <label><h3><b>Registro</b></h3></label>
+                                    </div>
+                                    <div class="form-group col-lg-12" style="color: #57167d;">
+                                        <label><h5>*Campos obligatorios</h5></label>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-12"> 
-                                            <label style="color: blue;">Nombre de la fundación*:</label>
-                                            <input type="text" value="" id="nomfudacion" class="form-control" name="nomfudacion"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Nombre de la fundación*:</label>
+                                            <input style="background-color: #e5d8ed;" type="text" value="" id="nomfudacion" class="form-control" name="nomfudacion"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-12"> 
-                                            <label style="color: blue;">Nombre y apelllido del responsable*:</label>
-                                            <input type="text" value="" id="nomresponsable" class="form-control" name="nomresponsable"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Nombre y apelllido del responsable*:</label>
+                                            <input style="background-color: #e5d8ed;" type="text" value="" id="nomresponsable" class="form-control" name="nomresponsable"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Email*:</label>
-                                            <input type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Email*:</label>
+                                            <input style="background-color: #e5d8ed;" type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
 
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
-                                            <label style="color: blue;">Teléfono celular*:</label>
-                                            <input type="tel" value="" id="telefonocel" class="form-control solo-numero" name="telefonocel"  placeholder="*Campo requerido" maxlength="10">
+                                            <label style="color: #57167d;">Teléfono celular*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefonocel" class="form-control solo-numero" name="telefonocel"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
-                                            <label style="color: blue;">Teléfono oficina*:</label>
-                                            <input type="tel" value="" id="telefonoofc" class="form-control solo-numero" name="telefonoofc"  placeholder="*Campo requerido" maxlength="10">
+                                            <label style="color: #57167d;">Teléfono oficina*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefonoofc" class="form-control solo-numero" name="telefonoofc"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -142,9 +137,10 @@ and open the template in the editor.
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <button
+<!--                                        <button
                                             class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="button">Enviar</button>
+                                            type="button">Enviar</button>-->
+                                        <a id="correoEnviado" name="correoEnviado"><img src="<?= base_url()?>static/pleca2Recurso 9.png"></a>
                                     </div>
                                 </div>
                             </form>

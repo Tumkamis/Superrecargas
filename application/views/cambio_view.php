@@ -49,10 +49,11 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
         <!-- color-line START -->
-        <div class="color-line"></div>
-
+        <br>
+        <br>
+        <br>
         <!-- login-container START -->
         <div class="register-container">
             <!-- row START -->
@@ -72,27 +73,27 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body" style="background-color: #F2F2F2;">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <!-- form start -->
                             <form role="form" id="form" action="<?= base_url() ?>cambio/cambio_post" method="post">
                                 <!-- form row -->
                                 <div class="row">
-                                    <div class="form-group col-lg-12" style="text-align: center;">
-                                        <label><h2>¡Bienvenido!</h2></label>
+                                    <div class="form-group col-lg-12" style="text-align: center; color: #57167d">
+                                        <label><h2>¡BIENVENIDO!</h2></label>
                                         <br>
                                         <label><h4>Para poder continuar por favor actualiza tu contraseña</h4></label>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-12"> 
-                                            <label style="color: blue;">Ingresa tu nueva contraseña*:</label>
-                                            <input type="password" value="" id="password1" class="form-control solo-numero" name="password1"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Ingresa tu nueva contraseña*:</label>
+                                            <input style="background-color: #e5d8ed;" type="password" value="" id="password1" class="form-control solo-numero" name="password1"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Repite tu contraseña*:</label>
-                                            <input type="password" value="" id="password2" class="form-control solo-numero" name="password2"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Repite tu contraseña*:</label>
+                                            <input style="background-color: #e5d8ed;" type="password" value="" id="password2" class="form-control solo-numero" name="password2"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
@@ -104,9 +105,10 @@ and open the template in the editor.
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <button
+<!--                                        <button
                                             class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="submit">Guardar</button>
+                                            type="submit">Guardar</button>-->
+                                        <a id="correoEnviado" name="correoEnviado"><img src="<?= base_url()?>static/pleca2Recurso 12.png"></a>
                                     </div>
                                 </div>
                             </form>

@@ -1,4 +1,4 @@
-/* MARGINS & PADDINGS */
+f/* MARGINS & PADDINGS */
 /* MARGINS & PADDINGS */
 @import url("http://localhost/aide19/static/coming_soon/fonts/Soberana%20Sans.css");
 .p-xxs {
@@ -2773,8 +2773,11 @@ h6 {
 .hbreadcrumb a.active {
   color: #9d9fa2;
 }
-.form-control {
+/*.form-control {
   border-color: #e4e5e7 !important;
+}*/
+.form-control {
+  border-color: #57167d !important;
 }
 .input-group-addon {
   background: #fafbfc;

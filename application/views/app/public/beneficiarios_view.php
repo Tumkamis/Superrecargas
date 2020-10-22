@@ -41,9 +41,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/sweetalert/lib/sweet-alert.css" />
         <link rel="stylesheet" href="<?= base_url() ?>static/vendor/toastr/build/toastr.css" />
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
         <!-- color-line START -->
-        <div class="color-line"></div>
 
         <!-- login-container START -->
         <div class="register-container">
@@ -64,10 +63,25 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <div class="row">
-                                <div class="form-group col-lg-12">
-<!--                                    <label><h4>Hola José Rubén</h4></label>-->
+                                <div class="form-group col-lg-12" style="text-align: center; color: #57167d">
+                                    <label><h4>Hola <?= $telefono?></h4></label>
+                                </div>
+                                <div class="form-group col-lg-12" style="text-align: left; color: #57167d">
+                                    <label>Tienes <?= $telefonos->telefonos?> números celulares agregados</label>
+                                </div>
+                                <div class="form-group col-lg-12" style="text-align: center; color: #57167d">
+                                    <a href="<?=  base_url()?>usuario/registro_beneficiario"><img src="<?= base_url()?>static/pleca2Recurso 13.png"></a>
+                                </div>
+                                <div class="form-group col-lg-12" style="text-align: center; color: #57167d">
+                                    <a href="<?=  base_url()?>app/logout"><img src="<?= base_url()?>static/pleca2Recurso 14.png"></a>
+                                </div>
+                                <div class="form-group col-lg-12" style="text-align: center;">
+                                    <img src="<?= base_url()?>static/instituciones/<?= $imagen?>.jpg" width="200" height="125">
+                                </div>
+<!--                                <div class="form-group col-lg-12" style="text-align: center; color: #57167d">
+                                    <label><h4>Hola José Rubén</h4></label>
                                     <label><h4>Hola <?= $telefono?></h4></label>
                                     <br>
                                     <label>Tienes <?= $telefonos->telefonos?> números celulares agregados</label>
@@ -78,7 +92,7 @@ and open the template in the editor.
                                         </a>
                                     </div>
                                     <div class="form-group " style="text-align:right;">
-                                        <!--<a href="http://superrecarga.website/SuperRecargaMeta/app/logout">-->
+                                        <a href="http://superrecarga.website/SuperRecargaMeta/app/logout">
                                         <a href="<?=  base_url()?>app/logout">
                                             <button class="btn btn-danger" id="" name="" type="button">Salir</button>
                                         </a>
@@ -86,12 +100,13 @@ and open the template in the editor.
                                     <div class="form-group" style="text-align: left;">
                                         <img src="<?= base_url()?>static/instituciones/<?= $imagen?>.jpg" width="200" height="150">
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
+                        <br>
                         <label style="color: white">Teléfonos registrados</label>
                         
-                        <div class="panel-body" style="background-color: #F2F2F2;">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <div class="row">
                                 <?php
                                 if(!is_null($beneficiarios)){
@@ -121,7 +136,7 @@ and open the template in the editor.
                                 <?php
                                     endforeach;
                                 }else {?>
-                                <label>Sin registros</label>
+                                <label style="color: #57167d;">Sin registros</label>
                                 <?php
                                 }
                                 ?>
