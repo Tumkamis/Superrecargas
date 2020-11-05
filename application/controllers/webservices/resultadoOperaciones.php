@@ -20,7 +20,7 @@ class resultadoOperaciones extends CI_Controller{
     }
     
     public function index() {
-        $data = json_decode($_POST[''], true);
+        $data = json_decode($_POST['d'], true);
         $arr_msjc = array();
         $arr_msjc['certComercioProveedor'] = $data['cadenaInformacion']['certComercioProveedor'];
         $arr_msjc['celularCliente'] = $data['cadenaInformacion']['celularCliente'];
