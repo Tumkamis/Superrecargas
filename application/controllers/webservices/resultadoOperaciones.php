@@ -20,7 +20,7 @@ class resultadoOperaciones extends CI_Controller{
     }
     
     public function index() {
-        $data = json_decode($_POST['solicitud'], true);
+        $data = json_decode($_POST[''], true);
         $arr_msjc = array();
         $arr_msjc['certComercioProveedor'] = $data['cadenaInformacion']['certComercioProveedor'];
         $arr_msjc['celularCliente'] = $data['cadenaInformacion']['celularCliente'];
@@ -45,10 +45,6 @@ class resultadoOperaciones extends CI_Controller{
         post_msj($arr_msjc);
         
         header("HTTP/1.1 200 OK");
-        header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-        header("Allow: GET, POST, OPTIONS, PUT, DELETE");
         header("Content-Type: application/json");
         $datos = array();
         $datos['resultado'] = 0;
