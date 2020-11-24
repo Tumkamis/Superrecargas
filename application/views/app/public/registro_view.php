@@ -48,9 +48,8 @@ and open the template in the editor.
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
-    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraund.jpg');">
+    <body class="blank" style="background-image: url('<?=  base_url()?>static/backgraundmorado.jpg');">
         <!-- color-line START -->
-        <div class="color-line"></div>
 
         <!-- login-container START -->
         <div class="register-container">
@@ -71,42 +70,84 @@ and open the template in the editor.
                     <!-- text-center m-b-mb END -->
                     <!-- hpanel START -->
                     <div class="hpanel">
-                        <div class="panel-body" style="background-color: #F2F2F2;">
+                        <div class="panel-body" style="background-color: white; border-radius: 15px;">
                             <!-- form start -->
                             <form role="form" id="form" action="<?= base_url() ?>registro/registro_post" method="post">
                                 <!-- form row -->
                                 <div class="row">
-                                    <div class="form-group col-lg-12 ">
-                                        <label><h4>Registro</h4></label>
-                                        <br>
-                                        <label><h4>*Campos obligatorios</h4></label>
+                                    <div class="form-group col-lg-12" style="text-align:center; color: #57167d;">
+                                        <label><h3><b>Registro</b></h3></label>
+                                    </div>
+                                    <div class="form-group col-lg-12" style="color: #57167d;">
+                                        <label><h5>*Campos obligatorios</h5></label>
                                     </div>
                                     <div class="form-group ">
                                         <div class="col-lg-6"> 
-                                            <label style="color: blue;">Número celular (10 dígitos)*:</label>
-                                            <input type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido" maxlength="10">
+                                            <label style="color: #57167d;">Número celular (10 dígitos)*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefono1" class="form-control solo-numero" name="telefono1"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-6">
-                                            <label style="color: blue;">Repetir número celular*:</label>
-                                            <input type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido" maxlength="10">
+                                            <label style="color: #57167d;">Repetir número celular*:</label>
+                                            <input style="background-color: #e5d8ed;" type="tel" value="" id="telefono2" class="form-control solo-numero" name="telefono2"  placeholder="*Campo requerido" maxlength="10">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Email*:</label>
-                                            <input type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
+                                            <label style="color: #57167d;">Email*:</label>
+                                            <input style="background-color: #e5d8ed;" type="text" value="" id="email" class="form-control" name="email"  placeholder="*Campo requerido">
                                             <span class="help-block"></span>
 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Institución a apoyar*:</label>
-                                            <select class="form-control" style="width: 100%" name="tipo" id="tipo">
+                                            <label style="color: #57167d;">Selecciona tu banco*:</label>
+                                            <select style="background-color: #e5d8ed;" class="form-control js-source-states" style="width: 100%" name="banco" id="banco">
+                                                <option>---Seleccione---</option>
+                                                <option value="ABC CAPITAL">ABC CAPITAL</option>
+                                                <option value="ACTINVER">ACTINVER</option>
+                                                <option value="AFIRME">AFIRME</option>
+                                                <option value="AUTOFIN">AUTOFIN</option>
+                                                <option value="AZTECA">AZTECA</option>
+                                                <option value="BANAMEX">BANAMEX</option>
+                                                <option value="BANCOPPEL">BANCOPPEL</option>
+                                                <option value="BAJIO">BAJIO</option>
+                                                <option value="BANJERCITO">BANJERCITO</option>
+                                                <option value="BANORTE/IXE">BANORTE/IXE</option>
+                                                <option value="BANREGIO">BANREGIO</option>
+                                                <option value="BANSEFI">BANSEFI</option>
+                                                <option value="BANSI">BANSI</option>
+                                                <option value="BBASE">BBASE</option>
+                                                <option value="BBVA">BBVA</option>
+                                                <option value="BMONEX">BMONEX</option>
+                                                <option value="CIBANCO">CIBANCO</option>
+                                                <option value="COMPARTAMOS">COMPARTAMOS</option>
+                                                <option value="CONSUBANCO">CONSUBANCO</option>
+                                                <option value="DONDE">DONDE</option>
+                                                <option value="HSBC">HSBC</option>
+                                                <option value="INBURSA">INBURSA</option>
+                                                <option value="INMOBILIARIO">INMOBILIARIO</option>
+                                                <option value="INTERCAM">INTERCAM</option>
+                                                <option value="INVEX">INVEX</option>
+                                                <option value="MIFEL">MIFEL</option>
+                                                <option value="MULTIVA BANCO">MULTIVA BANCO</option>
+                                                <option value="PAGATODO">PAGATODO</option>
+                                                <option value="SABADELL">SABADELL</option>
+                                                <option value="SANTANDER">SANTANDER</option>
+                                                <option value="SCOTIABANK">SCOTIABANK</option>
+                                                <option value="VEPORMAS">VEPORMAS</option>
+                                            </select>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <label style="color: #57167d;">Tipo Institución a apoyar:</label>
+                                            <select style="background-color: #e5d8ed;" class="form-control" style="width: 100%" name="tipo" id="tipo">
                                                 <option>---Seleccione---</option>
                                                 <?php
                                                     if (!is_null($tipoinsts)) :
@@ -123,8 +164,8 @@ and open the template in the editor.
                                     </div>
                                     <div class="form-group">
                                         <div class="col-lg-12">
-                                            <label style="color: blue;">Institución*:</label>
-                                            <select class="form-control js-source-states-2" style="width: 100%" name="instituciones" id="instituciones">
+                                            <label style="color: #57167d;">Institución a apoyar:</label>
+                                            <select style="background-color: #e5d8ed;" class="form-control js-source-states-2" style="width: 100%" name="instituciones" id="instituciones">
                                                 <option></option>
                                             </select>
                                             <span class="help-block"></span>
@@ -138,10 +179,8 @@ and open the template in the editor.
 
                                 <div class="form-group " style="text-align:center;">
                                     <div class="col-lg-12">
-                                        <a class="btn btn-default" style="border-color: blue; color: blue;" href="<?= base_url()?>login" >Cancelar</a>
-                                        <button
-                                            class="btn btn-primary" id="correoEnviado" name="correoEnviado" 
-                                            type="button">Enviar</button>
+                                        <a href="<?= base_url()?>login"><img src="<?= base_url()?>static/pleca2Recurso 8.png"></a>
+                                        <a id="correoEnviado" name="correoEnviado"><img src="<?= base_url()?>static/pleca2Recurso 9.png"></a>
                                     </div>
                                 </div>
                             </form>
