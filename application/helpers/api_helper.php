@@ -14,3 +14,8 @@ function post_msj($data){
     $CI =& get_instance();
     $CI->db->insert('mensajecobro',$data);
 }
+
+function post_nws($data){
+    $CI =& get_instance();
+    $CI->db->insert('nuevows',$data);
+}
