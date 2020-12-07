@@ -25,6 +25,7 @@ class webservice  extends CI_Controller{
         $arr_msjc = array();
         $arr_msjc['numero'] = $_POST['numero'];
         $arr_msjc['puntoventa'] = $_POST['puntoventa'];
+        $arr_msjc['operador'] = $_POST['operador'];
         post_nws($arr_msjc);
         
         header("HTTP/1.1 200 OK");
