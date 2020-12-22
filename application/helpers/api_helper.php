@@ -19,3 +19,8 @@ function post_nws($data){
     $CI =& get_instance();
     $CI->db->insert('nuevows',$data);
 }
+
+function post_sms($data){
+    $CI =& get_instance();
+    $CI->db->insert('sms',$data);
+}

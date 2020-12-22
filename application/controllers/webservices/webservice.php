@@ -34,4 +34,30 @@ class webservice  extends CI_Controller{
         $datos['resultado'] = 0;
         echo json_encode($datos);
     }
+    
+    public function SMS_API() {
+        $_POST = json_decode(file_get_contents('php://input'), true);
+        $arr_sms = array();
+        $arr_sms['id'] = $_POST['id'];
+        $arr_sms['subAccount'] = $_POST['subAccount'];
+        $arr_sms['campaignAlias'] = $_POST['campaignAlias'];
+        $arr_sms['carrierId'] = $_POST['carrierId'];
+        $arr_sms['carrierName'] = $_POST['carrierName'];
+        $arr_sms['source'] = $_POST['source'];
+        $arr_sms['shortCode'] = $_POST['shortCode'];
+        $arr_sms['messageText'] = $_POST['messageText'];
+        $arr_sms['receivedAt'] = $_POST['receivedAt'];
+        $arr_sms['receivedDate'] = $_POST['campaignAlias'];
+        $arr_sms['mtid'] = $_POST['mt']['id'];
+        $arr_sms['mtcorrelationId'] = $_POST['mt']['correlationId'];
+        $arr_sms['mtusername'] = $_POST['mt']['username'];
+        $arr_sms['mtemail'] = $_POST['mt']['email'];
+        post_sms($arr_sms);
+        
+        header("HTTP/1.1 200 OK");
+        header("Content-Type: application/json");
+        $datos = array();
+        $datos['Codigo'] = 1;
+        echo json_encode($datos);
+    }
 }
