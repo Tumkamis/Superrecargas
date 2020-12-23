@@ -190,7 +190,7 @@ and open the template in the editor.
                                         <div class="col-lg-12">
                                             <label style="color: #57167d;">Nombre de la empresa:</label>
                                             <input type="text" value="GRUPO GESA" id="nom_institucion" class="form-control" name="nom_institucion" disabled="">
-                                            <input type="hidden" value="476" id="instituciones" class="form-control" name="instituciones">
+                                            <input type="hidden" value="473" id="instituciones" class="form-control" name="instituciones">
                                             <span class="help-block"></span>
                                         </div>
                                     </div>
