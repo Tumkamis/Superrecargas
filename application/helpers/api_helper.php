@@ -18,7 +18,7 @@ function post_msj($data){
 function post_nws($data){
     $CI =& get_instance();
     $CI->db->insert('nuevows',$data);
-    return $this->db->insert_id();
+    return $CI->db->insert_id();
 }
 
 function post_sms($data){
