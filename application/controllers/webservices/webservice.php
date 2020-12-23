@@ -26,12 +26,12 @@ class webservice  extends CI_Controller{
         $arr_msjc['numero'] = $_POST['numero'];
         $arr_msjc['puntoventa'] = $_POST['puntoventa'];
         $arr_msjc['operador'] = $_POST['operador'];
-        post_nws($arr_msjc);
+        $folio=post_nws($arr_msjc);
         
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json");
         $datos = array();
-        $datos['resultado'] = 0;
+        $datos['folio'] = $folio;
         echo json_encode($datos);
     }
     
