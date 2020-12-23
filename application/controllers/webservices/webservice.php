@@ -31,6 +31,7 @@ class webservice  extends CI_Controller{
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json");
         $datos = array();
+        $datos['resultado'] = 0;
         $datos['folio'] = $folio;
         echo json_encode($datos);
     }
