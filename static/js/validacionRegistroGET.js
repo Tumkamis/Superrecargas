@@ -256,7 +256,7 @@ jQuery(document).ready(function ($) {
                 //alert("No Agregado " + c);
                 swal({
                     title: "Alerta",
-                    text: "Es posible que el número que intenta ingresar ya este registrado, por favor verifique los datos",
+                    text: "Ha ocurrido un error, por favor inténtelo de nuevo más tarde",
                     type: "warning"
                 });
             }
