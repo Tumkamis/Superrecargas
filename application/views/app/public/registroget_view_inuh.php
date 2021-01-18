@@ -62,7 +62,7 @@ and open the template in the editor.
             <div class="form-group " style="text-align:center;">
                 <label style="color: white; font-family: Arial Bold;"><h2>¡BIENVENIDO!</h2></label>
                 <br>
-                <label style="color: white;"><h4>A PARTIR DE HOY VAS A AHORRAR Y CUIDAR LA SALUD CON TODAS TUS RECARGAS CELULARES</h4></label>
+                <label style="color: white;"><h4>A PARTIR DE HOY VAS A AHORRAR Y APOYAR CON TODAS TUS RECARGAS CELULARES</h4></label>
             </div>
         </div>
         <div class="col-lg-3">
