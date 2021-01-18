@@ -334,4 +334,19 @@ header("Allow: GET, POST, OPTIONS, PUT, DELETE");
          */
         $data = $this->load->view('app/public/registroget_view_gesa', $data, FALSE);
     }
+    
+    public function registrogetINUH() {
+        $data = array();
+        
+        //Para espacios
+//        $fundacionn=  rawurldecode($fundacion);
+//        $infoinst=$this->propietario_model->consultar_institucion($fundacionn);
+//        $data['fundacion'] = $infoinst;
+        $data['tipoinsts'] = $this->propietario_model->tipo_instituciones();
+        $data['titulo'] = "Súper Recarga | Registro";
+        /**
+         * Cargamos la vista completa de la seccion correspondiente
+         */
+        $data = $this->load->view('app/public/registroget_view_inuh', $data, FALSE);
+    }
 }
