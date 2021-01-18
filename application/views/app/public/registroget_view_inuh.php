@@ -55,7 +55,7 @@ and open the template in the editor.
         <br>
         <br>
         <div class="col-lg-3">
-            <img src="<?= base_url()?>static/instituciones/GESA.jpg" width="200" height="70" style="border-radius: 75px;">
+            <img src="<?= base_url()?>static/instituciones/INUH.jpg" width="200" height="70" style="border-radius: 75px;">
             <!--<img src="https://www.superrecarga.com.mx/WebService/static/instituciones/<?= $fundacion->img?>.jpg" width="200" height="150">-->
         </div>
         <div class="col-lg-6">
