@@ -25,3 +25,8 @@ function post_sms($data){
     $CI =& get_instance();
     $CI->db->insert('sms',$data);
 }
+
+function post_ejemplo($data){
+    $CI =& get_instance();
+    $CI->db->insert('ejemplo',$data);
+}
