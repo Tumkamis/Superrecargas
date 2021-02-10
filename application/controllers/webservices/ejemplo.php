@@ -31,6 +31,7 @@ class ejemplo extends CI_Controller{
         header("Content-Type: application/json");
         $datos = array();
         $datos['resultado'] = 0;
+        $datos['res'] = 0;
         $datos['folio'] = $folio;
         echo json_encode($datos);
     }
