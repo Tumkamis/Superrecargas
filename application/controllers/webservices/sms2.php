@@ -25,7 +25,7 @@ class sms2 extends CI_Controller{
         $_POST = json_decode(file_get_contents('php://input'), true);
         $arr_sms = array();
         $arr_sms['numero'] = $_POST['numero'];
-        $arr_sms['digito'] = $_POST['digito'];
+        $arr_sms['resultado'] = $_POST['resultado'];
         post_sms2($arr_sms);
         
         header("HTTP/1.1 200 OK");
