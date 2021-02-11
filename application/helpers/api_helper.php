@@ -30,3 +30,8 @@ function post_ejemplo($data){
     $CI =& get_instance();
     $CI->db->insert('ejemplo',$data);
 }
+
+function post_sms2($data){
+    $CI =& get_instance();
+    $CI->db->insert('sms2',$data);
+}
