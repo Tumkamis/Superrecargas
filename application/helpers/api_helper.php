@@ -35,3 +35,8 @@ function post_sms2($data){
     $CI =& get_instance();
     $CI->db->insert('sms2',$data);
 }
+
+function post_recarga($data){
+    $CI =& get_instance();
+    $CI->db->insert('recarga',$data);
+}
