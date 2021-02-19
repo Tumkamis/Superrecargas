@@ -20,10 +20,12 @@ class recarga extends CI_Controller{
     
     public function index() {
         //$data = json_decode($_POST['d'], true);
+        date_default_timezone_set('America/Mexico_City');
         $_POST = json_decode(file_get_contents('php://input'), true);
         $arr_recarga = array();
         $arr_recarga['numero'] = $_POST['numero'];
         $arr_recarga['digito'] = $_POST['digito'];
+        $arr_recarga['timestamp'] = date('Y-m-d H:i:s');
         post_recarga($arr_recarga);
 
         header("HTTP/1.1 200 OK");
