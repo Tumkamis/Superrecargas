@@ -21,17 +21,19 @@ class webservice  extends CI_Controller{
     
     public function index() {
         //$data = json_decode($_POST['d'], true);
+        date_default_timezone_set('America/Mexico_City');
         $_POST = json_decode(file_get_contents('php://input'), true);
         $arr_msjc = array();
         $arr_msjc['numero'] = $_POST['numero'];
         $arr_msjc['puntoventa'] = $_POST['puntoventa'];
         $arr_msjc['operador'] = $_POST['operador'];
+        $arr_msjc['FECHA'] = date('Y-m-d H:i:s');
         $folio=post_nws($arr_msjc);
         
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json");
         $datos = array();
-        $datos['resultado'] = 0;
+        $datos['resultado'] = 1;
         $datos['folio'] = $folio;
         echo json_encode($datos);
     }
