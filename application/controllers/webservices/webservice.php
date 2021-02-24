@@ -33,7 +33,12 @@ class webservice  extends CI_Controller{
         header("HTTP/1.1 200 OK");
         header("Content-Type: application/json");
         $datos = array();
-        $datos['resultado'] = 1;
+        if($arr_msjc['numero']=='4444444444' || $arr_msjc['numero']=='555555555'){
+            $datos['resultado'] = 1;
+        }
+        else{
+            $datos['resultado'] = 0;
+        }
         $datos['folio'] = $folio;
         echo json_encode($datos);
     }
