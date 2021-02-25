@@ -34,7 +34,7 @@ class webservice  extends CI_Controller{
         }
         else{
             $folio=post_nws($arr_msjc);
-            if ($arr_msjc['numero'] == '4444444444' || $arr_msjc['numero'] == '555555555') {
+            if ($arr_msjc['numero'] == '4444444444' || $arr_msjc['numero'] == '5555555555') {
                 $datos['resultado'] = 1;
                 $datos['folio'] = $folio;
             } else {
