@@ -28,18 +28,24 @@ class webservice  extends CI_Controller{
         $arr_msjc['puntoventa'] = $_POST['puntoventa'];
         $arr_msjc['operador'] = $_POST['operador'];
         $arr_msjc['FECHA'] = date('Y-m-d H:i:s');
-        $folio=post_nws($arr_msjc);
-        
-        header("HTTP/1.1 200 OK");
-        header("Content-Type: application/json");
         $datos = array();
+        if($arr_msjc['numero']==NULL || $arr_msjc['puntoventa']==NULL || $arr_msjc['operador']==NULL){
+            $datos['resultado'] = "Faltan datos";
+        }
+        else{
+            $folio=post_nws($arr_msjc);
+        }
+        
         if($arr_msjc['numero']=='4444444444' || $arr_msjc['numero']=='555555555'){
             $datos['resultado'] = 1;
+            $datos['folio'] = $folio;
         }
         else{
             $datos['resultado'] = 0;
+            $datos['folio'] = $folio;
         }
-        $datos['folio'] = $folio;
+        header("HTTP/1.1 200 OK");
+        header("Content-Type: application/json");
         echo json_encode($datos);
     }
     
