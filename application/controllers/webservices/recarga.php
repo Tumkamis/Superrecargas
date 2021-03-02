@@ -25,6 +25,8 @@ class recarga extends CI_Controller{
         $arr_recarga = array();
         $arr_recarga['numero'] = $_POST['numero'];
         $arr_recarga['digito'] = $_POST['digito'];
+        $arr_recarga['numero1'] = $_POST['numero1'];
+        $arr_recarga['digito1'] = $_POST['digito1'];
         $arr_recarga['timestamp'] = date('Y-m-d H:i:s');
         post_recarga($arr_recarga);
 
