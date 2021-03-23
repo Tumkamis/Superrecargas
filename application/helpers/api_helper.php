@@ -40,3 +40,8 @@ function post_recarga($data){
     $CI =& get_instance();
     $CI->db->insert('recarga',$data);
 }
+
+function post_recargaplus($data){
+    $CI =& get_instance();
+    $CI->db->insert('recargaplus',$data);
+}
