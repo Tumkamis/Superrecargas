@@ -26,14 +26,16 @@ class login extends CI_Controller{
         $password= $_POST['pas'];
         $respuesta=login($telefono,$password);
         
-        if ($respuesta != NULL) {
-            header("HTTP/1.1 200 OK");
-            echo json_encode($respuesta);
-            exit();
-        } else {
-            header("HTTP/1.1 400 Bad Request");
-            echo json_encode($respuesta);
-            exit();
-        }
+        echo json_encode($respuesta);
+        
+//        if ($respuesta != NULL) {
+//            header("HTTP/1.1 200 OK");
+//            echo json_encode($respuesta);
+//            exit();
+//        } else {
+//            header("HTTP/1.1 400 Bad Request");
+//            echo json_encode($respuesta);
+//            exit();
+//        }
     }
 }
