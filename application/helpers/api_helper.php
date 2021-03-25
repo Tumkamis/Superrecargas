@@ -47,7 +47,12 @@ function post_recargaplus($data){
 }
 
 function login($telefono,$password){
-    $cmd = "SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0";
-    $query = $this->db->query($cmd);
-    return ($query->num_rows() === 1) ? $query->row() : NULL;
+//    $cmd = "SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0";
+//    $query = $this->db->query($cmd);
+//    return ($query->num_rows() === 1) ? $query->row() : NULL;
+    
+    $CI =& get_instance();
+    $consulta = $CI->db->query("SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0");
+    $resultado = $consulta->row();
+    return $resultado;
 }
