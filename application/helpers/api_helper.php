@@ -45,3 +45,10 @@ function post_recargaplus($data){
     $CI =& get_instance();
     $CI->db->insert('recargaplus',$data);
 }
+
+function login($telefono,$password){
+    $CI =& get_instance();
+    $CI = "SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0";
+    $query = $this->db->query($CI);
+    return ($query->num_rows() === 1) ? $query->row() : NULL;
+}
