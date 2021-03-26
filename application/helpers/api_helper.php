@@ -47,9 +47,10 @@ function post_recargaplus($data){
 }
 
 function login(){
-    $this->db->select('idoperador, nombre, estatus');
-    $this->db->from('operador');
-    $consulta = $this->db->get();
+    $CI =& get_instance();
+    $CI->db->select('idoperador, nombre, estatus');
+    $CI->db->from('operador');
+    $consulta = $CI->db->get();
     $resultado = $consulta->result();
     
     return $resultado;
