@@ -46,11 +46,11 @@ function post_recargaplus($data){
     $CI->db->insert('recargaplus',$data);
 }
 
-function login($telefono,$password){
-//    $cmd = "SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0";
-//    $query = $this->db->query($cmd);
-//    return ($query->num_rows() === 1) ? $query->row() : NULL;
-    $consulta = $this->db->query("SELECT * FROM propietario WHERE telefono LIKE '$telefono' AND contrasena LIKE '$password' AND estatus != 0");
-    //$resultado = $consulta->row();
-    return $consulta->result();
+function login(){
+    $this->db->select('idoperador, nombre, estatus');
+    $this->db->from('operador');
+    $consulta = $this->db->get();
+    $resultado = $consulta->result();
+    
+    return $resultado;
 }

@@ -24,7 +24,7 @@ class login extends CI_Controller{
         $_POST = json_decode(file_get_contents('php://input'), true);
         $telefono= $_POST['telefono'];
         $password= $_POST['pas'];
-        $respuesta=login($telefono,$password);
+        $respuesta=login();
         
         echo json_encode($respuesta);
         
