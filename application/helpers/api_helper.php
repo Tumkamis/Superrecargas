@@ -49,8 +49,8 @@ function post_recargaplus($data){
 function login(){
     $estatus=1;
     $CI =& get_instance();
-    $CI->db->select('idoperador, nombre, estatus');
-    $CI->db->from('operador');
+    $CI->db->select('idtipoinst, nombre, estatus');
+    $CI->db->from('tipoinstitucion');
     $CI->db->where('estatus', $estatus);
     $consulta = $CI->db->get();
     $resultado = $consulta->result();
