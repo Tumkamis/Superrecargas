@@ -26,7 +26,7 @@ class login extends CI_Controller{
         $password= $_POST['pas'];
         $respuesta=login();
         
-        echo json_encode($respuesta);
+        echo json_encode($respuesta,JSON_UNESCAPED_UNICODE);
         
 //        if ($respuesta != NULL) {
 //            header("HTTP/1.1 200 OK");
