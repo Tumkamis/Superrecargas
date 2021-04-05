@@ -46,6 +46,11 @@ function post_recargaplus($data){
     $CI->db->insert('recargaplus',$data);
 }
 
+function post_recargamas($data){
+    $CI =& get_instance();
+    $CI->db->insert('recargamas',$data);
+}
+
 function login(){
     $estatus=1;
     $CI =& get_instance();
