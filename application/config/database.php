@@ -65,9 +65,9 @@ $active_record = TRUE;
 //$db['default']['autoinit'] = TRUE;
 //$db['default']['stricton'] = FALSE;
 
-$db['default']['hostname'] = '54.183.11.183';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'diatel2020';
+$db['default']['hostname'] = '54.176.233.121';
+$db['default']['username'] = 'Diatel';
+$db['default']['password'] = 'diatel';
 $db['default']['database'] = 'superrecargafundacion';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
